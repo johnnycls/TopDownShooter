@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ew4ek0oaqhx"]
+
+[ext_resource type="Script" uid="uid://cn0muhh0tsavh" path="res://uis/layer1/settings.gd" id="1_13p4e"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fot4b"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_ngi4l"]
+events = [SubResource("InputEventAction_fot4b")]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_13p4e")
+
+[node name="BackBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 202.0
+offset_bottom = 134.0
+shortcut = SubResource("Shortcut_ngi4l")
+text = "BACK"
+
+[node name="LangSelect" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="item_selected" from="LangSelect" to="." method="_on_lang_select_item_selected"]

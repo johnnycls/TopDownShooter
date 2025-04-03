@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctgyq10dlxu46"]
+
+[ext_resource type="Script" uid="uid://ctek5ptcwq6sp" path="res://uis/hud.gd" id="1_hqj21"]
+[ext_resource type="PackedScene" uid="uid://cb1hvsdau44m3" path="res://uis/layer2/status_bar.tscn" id="3_iiych"]
+[ext_resource type="PackedScene" uid="uid://cdbf1f7w6rewp" path="res://uis/layer3/popup_layer.tscn" id="4_3p783"]
+[ext_resource type="PackedScene" uid="uid://b3q3m5cestqii" path="res://uis/layer4/menu.tscn" id="4_bq5jc"]
+
+[node name="Hud" type="Node"]
+script = ExtResource("1_hqj21")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 35
+
+[node name="StatusBar" parent="." instance=ExtResource("3_iiych")]
+layer = 35
+
+[node name="PopupLayer" parent="." instance=ExtResource("4_3p783")]
+
+[node name="Menu" parent="." instance=ExtResource("4_bq5jc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

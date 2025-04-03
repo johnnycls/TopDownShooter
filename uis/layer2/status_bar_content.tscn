@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://davt8kbskdh00"]
+
+[ext_resource type="Script" uid="uid://b53e5e5hjkrgt" path="res://uis/layer2/status_bar_content.gd" id="1_ntxo1"]
+
+[node name="StatusBarContent" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 469.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+script = ExtResource("1_ntxo1")

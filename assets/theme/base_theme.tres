@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bgq7gf52v0365"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dksrs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prlny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cj5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24711"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxe5j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1s5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lajf8"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[resource]
+Button/colors/font_color = Color(0.8, 0.8, 0.8, 1)
+Button/colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 0.376471)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 64
+Button/styles/disabled = SubResource("StyleBoxEmpty_dksrs")
+Button/styles/focus = SubResource("StyleBoxEmpty_prlny")
+Button/styles/hover = SubResource("StyleBoxEmpty_3cj5q")
+Button/styles/normal = SubResource("StyleBoxEmpty_24711")
+Button/styles/pressed = SubResource("StyleBoxEmpty_xxe5j")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 64
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/font_sizes/font_size = 64
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_b1s5r")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_lajf8")
