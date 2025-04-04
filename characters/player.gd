@@ -3,6 +3,9 @@ extends CharacterBody3D
 @export var speed: float = 5.0
 @export var bullet_scene: PackedScene = preload("res://objects/bullet.tscn")
 @export var fire_rate: float = 1.0
+
+@onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
+
 var can_shoot: bool = true
 
 func _process(_delta: float) -> void:
@@ -17,6 +20,14 @@ func handle_movement() -> void:
 	input_dir.x = Input.get_axis("move_left", "move_right")
 	input_dir.z = Input.get_axis("move_forward", "move_backward")
 	input_dir = input_dir.normalized()
+	
+	if input_dir != Vector3.ZERO:
+		animation_player.current_animation = "Armature|Handbag_Walk|baselayer"
+		animation_player.play()
+	else:
+		animation_player.current_animation = "idle_animation/Armature|Idle_02|baselayer"
+		animation_player.play()
+		
 	velocity = input_dir * speed
 	move_and_slide()
 
@@ -30,7 +41,8 @@ func handle_shooting() -> void:
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)
-		bullet.direction = global_position.direction_to(get_mouse_world_position())
+		bullet.global_position = global_position + Vector3.UP
+		bullet.direction = global_position.direction_to(get_mouse_world_position() + Vector3.UP)
 		
 		can_shoot = false
 		await Global.wait(fire_rate)
