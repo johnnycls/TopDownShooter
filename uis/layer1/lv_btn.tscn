@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3bn2ekvkqljn"]
+
+[node name="Button" type="Button"]
+size_flags_horizontal = 3
+theme_type_variation = &"Btn1"
+text = "0"

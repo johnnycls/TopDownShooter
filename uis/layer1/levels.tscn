@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bei5d4lun20f8"]
 
 [ext_resource type="Script" uid="uid://cxkargv5o7gjl" path="res://uis/layer1/levels.gd" id="1_8c77u"]
-[ext_resource type="Texture2D" uid="uid://dnptx66ptsjwd" path="res://assets/ui_sprites/bg.png" id="2_g7uu2"]
+[ext_resource type="Texture2D" uid="uid://dnptx66ptsjwd" path="res://assets/ui_sprites/general/bg.png" id="2_g7uu2"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_fot4b"]
 action = &"ui_cancel"
@@ -34,14 +34,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 25
 
 [node name="BackBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -50,14 +50,11 @@ theme_type_variation = &"Btn1"
 shortcut = SubResource("Shortcut_raslr")
 text = "BACK"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"Btn1"
-text = "0"
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 25
+columns = 5
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]

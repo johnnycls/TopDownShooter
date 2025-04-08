@@ -11,3 +11,5 @@ const DEFAULT_LANG: int = 1
 var INIT_PROGRESS: Dictionary = {
 	"level": 0,
 }
+
+const LEVEL_NUM = 5

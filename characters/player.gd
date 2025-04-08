@@ -6,14 +6,17 @@ extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 
+var can_move: bool = false
 var can_shoot: bool = true
 
 func _process(_delta: float) -> void:
-	handle_rotation()
-	handle_shooting()
+	if can_move:
+		handle_rotation()
+		handle_shooting()
 
 func _physics_process(_delta: float) -> void:
-	handle_movement()
+	if can_move:
+		handle_movement()
 
 func handle_movement() -> void:
 	var input_dir = Vector3.ZERO

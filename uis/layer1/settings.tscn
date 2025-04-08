@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7ew4ek0oaqhx"]
 
 [ext_resource type="Script" uid="uid://cn0muhh0tsavh" path="res://uis/layer1/settings.gd" id="1_13p4e"]
-[ext_resource type="Texture2D" uid="uid://dnptx66ptsjwd" path="res://assets/ui_sprites/bg.png" id="2_rxnpe"]
+[ext_resource type="Texture2D" uid="uid://dnptx66ptsjwd" path="res://assets/ui_sprites/general/bg.png" id="2_rxnpe"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_fot4b"]
 action = &"ui_cancel"

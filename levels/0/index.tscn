@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqmsceqyuqt0p"]
+[gd_scene load_steps=5 format=3 uid="uid://bqmsceqyuqt0p"]
 
 [ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_exbhk"]
+[ext_resource type="Script" uid="uid://cthi5viuvp2j7" path="res://levels/0/index.gd" id="2_tdbyr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_exbhk"]
 size = Vector3(50, 1, 50)
@@ -8,7 +9,8 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_tdbyr"]
 size = Vector3(50, 1, 50)
 
-[node name="BaseLevel" instance=ExtResource("1_exbhk")]
+[node name="Level" instance=ExtResource("1_exbhk")]
+script = ExtResource("2_tdbyr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

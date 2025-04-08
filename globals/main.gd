@@ -17,7 +17,6 @@ func clear_ui() -> void:
 func start_game(level: int) -> void:
 	hud.clear_ui()
 	Game.start_game(level)
-	can_open_menu = true
 
 func back_to_home_screen() -> void:
 	Game.end_game()

@@ -27,8 +27,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"player": "res://dialogic/characters/player.dch"
+}
+directories/dtl_directory={
+"lv0": "res://dialogic/timelines/lv0.dtl"
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -49,8 +53,8 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-layout/style_list=[""]
-layout/default_style="res://dialogic/styles/visual_novel_style.tres"
+layout/style_list=["res://dialogic/styles/visual_novel_style.tres"]
+layout/default_style=""
 glossary/default_case_sensitive=true
 variables={}
 translation/enabled=false
@@ -78,7 +82,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [gui]
 
 theme/custom="res://assets/theme/base_theme.tres"
-theme/custom_font="res://assets/fonts/NotoSansTC-Regular.ttf"
+theme/custom_font="uid://cmqidka4u8bew"
 
 [input]
 
