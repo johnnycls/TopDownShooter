@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://7i2ltxhfe2tn"]
+[gd_scene load_steps=3 format=3 uid="uid://7i2ltxhfe2tn"]
 
 [ext_resource type="Script" uid="uid://bds1g8lmi3f7j" path="res://uis/layer1/home.gd" id="1_blhe6"]
+[ext_resource type="Texture2D" uid="uid://dnptx66ptsjwd" path="res://assets/ui_sprites/bg.png" id="2_rfhc7"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -10,6 +11,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_blhe6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rfhc7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -26,29 +36,29 @@ size_flags_vertical = 3
 [node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
-[node name="NewGameBtn" type="Button" parent="VBoxContainer/Buttons"]
+[node name="StoryBtn" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-theme_type_variation = &"HomePageButton"
+theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
-text = "NEW_GAME"
+text = "STORY_MODE"
 
-[node name="ContinueBtn" type="Button" parent="VBoxContainer/Buttons"]
+[node name="ExtraBtn" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-theme_type_variation = &"HomePageButton"
+theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
-text = "CONTINUE_GAME"
+text = "EXTRA_GAMES"
 
 [node name="SettingsBtn" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-theme_type_variation = &"HomePageButton"
+theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
 text = "SETTINGS"
 
 [node name="QuitBtn" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-theme_type_variation = &"HomePageButton"
+theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
 text = "QUIT_GAME"
 
@@ -57,7 +67,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[connection signal="pressed" from="VBoxContainer/Buttons/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/StoryBtn" to="." method="_on_story_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ExtraBtn" to="." method="_on_extra_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/QuitBtn" to="." method="_on_quit_btn_pressed"]

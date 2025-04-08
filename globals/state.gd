@@ -2,7 +2,7 @@ extends Node
 
 signal progress_updated
 
-var progress: Dictionary = {}
+var progress: Dictionary = Config.INIT_PROGRESS
 var settings: Dictionary = {}
 var record: Dictionary = {}
 
