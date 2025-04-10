@@ -1,7 +1,4 @@
 extends Level
 
-func init() -> void:
+func ready() -> void:
     Dialogic.start("lv0")
-
-func start_game() -> void:
-    pass
