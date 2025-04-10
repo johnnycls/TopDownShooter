@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4jesad6hcy3a"
+uid="uid://cnx04073y071y"
 path.s3tc="res://.godot/imported/Animation_Walking_withSkin_texture_0.png-e6bc5d116653ca4f986962c5410453a7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "85ad9380e0a0c966a1491bf5c29f97ce"
+"md5": "a0686df1b694638c1ef5bd58803774a5"
 }
 
 [deps]
