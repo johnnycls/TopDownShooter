@@ -184,6 +184,7 @@ shoot={
 [internationalization]
 
 locale/translation_remaps={}
+locale/translations=PackedStringArray("res://assets/translations/translation.cmn.translation", "res://assets/translations/translation.en.translation", "res://assets/translations/translation.es.translation", "res://assets/translations/translation.ja.translation", "res://assets/translations/translation.ko.translation", "res://assets/translations/translation.ru.translation", "res://assets/translations/translation.zh.translation")
 locale/locale_filter_mode=0
 
 [rendering]
