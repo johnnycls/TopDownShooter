@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dndt4vj78o7id"]
+[gd_scene load_steps=7 format=3 uid="uid://dndt4vj78o7id"]
 
 [ext_resource type="Script" uid="uid://2sc2ilfkie8w" path="res://characters/player/player.gd" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://cxkgend60pwew" path="res://assets/textures/muzzle.png" id="2_exd8k"]
 [ext_resource type="PackedScene" uid="uid://b6tdrjhtkaipf" path="res://assets/character_models/player/player.tscn" id="2_xxgcw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3eadt"]
 height = 1.6
 radius = 0.3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxgcw"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_exd8k")
+emission_enabled = true
+emission = Color(0.8, 0.4, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xxgcw"]
+material = SubResource("StandardMaterial3D_xxgcw")
+size = Vector2(0.3, 0.4)
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_dnjla")
 
 [node name="GunPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0638895, 1.35284, 1.07091)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -46,5 +59,29 @@ bones/21/rotation = Quaternion(-0.0341982, -0.42622, -0.010726, 0.903909)
 
 [node name="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="0"]
 transform = Transform3D(0.0465452, 0.309305, 0.949823, 0.99888, -0.0063022, -0.0468969, -0.00851949, 0.950942, -0.309251, -0.120144, 1.19002, 0.680803)
+
+[node name="MuzzleFlash" type="Node3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver" index="1"]
+transform = Transform3D(-0.87958, -0.129859, 0.457684, -0.0789096, 0.988523, 0.128827, -0.469159, 0.0771986, -0.879733, 0.00459707, 0.270909, -0.220138)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash"]
+transform = Transform3D(6.83983e-09, 0.573576, -0.819152, -1, 1.19249e-08, 3.9968e-15, 9.76829e-09, 0.819152, 0.573576, 0.0803078, -0.00783265, 0.115842)
+mesh = SubResource("QuadMesh_xxgcw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash"]
+transform = Transform3D(0.819152, 0.573577, 3.58063e-08, 4.37114e-08, 1.33227e-15, -1, -0.573577, 0.819152, -2.50718e-08, 0.0775411, 0.00147069, 0.106928)
+mesh = SubResource("QuadMesh_xxgcw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash"]
+light_color = Color(1, 0.866667, 0.8, 1)
+light_energy = 0.5
+omni_range = 2.0
+omni_attenuation = 2.0
+
+[node name="Timer" type="Timer" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash"]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash/Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Model"]

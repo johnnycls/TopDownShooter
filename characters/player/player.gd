@@ -4,12 +4,15 @@ signal dead
 
 @export var speed: float = 5.0
 @export var jump_velocity: float = 9.0
-@export var bullet_scene: PackedScene = preload("res://objects/bullet.tscn")
 @export var fire_rate: float = 0.5
 @export var max_health: int = 1
+@export var shoot_distance: float = 50.0
+@export var shoot_damage: float = 1.0
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
+@onready var muzzle: Node3D = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash
+@onready var muzzle_timer: Timer = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash/Timer
 
 var gravity: float = 18.0
 var can_move: bool = false
@@ -71,18 +74,27 @@ func handle_rotation() -> void:
 
 func handle_shooting() -> void:
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		var bullet = bullet_scene.instantiate()
-		get_parent().add_child(bullet)
-		bullet.global_position = gun_marker.global_position
 		var target = get_mouse_world_position()
-		bullet.direction = bullet.global_position.direction_to(target)
+		var ray_origin = gun_marker.global_position
+		var ray_direction = ray_origin.direction_to(target)
+		
+		var space_state = get_world_3d().direct_space_state
+		var ray_end = ray_origin + ray_direction * shoot_distance
+		var ray_parameters = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+		ray_parameters.exclude = [self]
+		
+		var hit = space_state.intersect_ray(ray_parameters)
+		if hit and hit.collider is Enemy:
+			hit.collider.take_damage(shoot_damage)
 		
 		is_shooting = true
 		can_shoot = false
 		
 		animation_player.play("Gunplay/mixamo_com")
 		shoot_animation()
-
+		muzzle.show()
+		muzzle_timer.start()
+		
 		await Global.wait(fire_rate)
 		can_shoot = true
 
@@ -129,3 +141,7 @@ func win() -> void:
 	animation_player.play("Victory/mixamo_com")
 	await animation_player.animation_finished
 	is_celebrating = false
+
+
+func _on_timer_timeout() -> void:
+	muzzle.hide()

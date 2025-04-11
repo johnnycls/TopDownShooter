@@ -1,12 +1,12 @@
 class_name Level extends Node3D
 
-@export var spawn_radius: float = 20.0
-@export var spawn_interval: float = 2.0
-@export var goblin_enemy_count: int = 5
-@export var wolf_enemy_count: int = 0
-@export var imp_enemy_count: int = 0
-@export var goblin_wizard_enemy_count: int = 0
-@export var boss_enemy_count: int = 0
+var spawn_radius: float = 20.0
+var spawn_interval: float
+var goblin_enemy_count: int
+var wolf_enemy_count: int
+var imp_enemy_count: int
+var goblin_wizard_enemy_count: int
+var boss_enemy_count: int
 
 @onready var player: Node3D = $Player
 @onready var spawn_timer: Timer = $SpawnTimer
