@@ -1,4 +1,5 @@
 extends Level
 
-func _on_ready() -> void:
+func _ready() -> void:
+    super._ready()
     Dialogic.start("lv0")

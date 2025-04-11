@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkxa0aj6v7mw3"]
 
-[ext_resource type="Script" path="res://uis/layer4/menu_content.gd" id="1_0xyei"]
+[ext_resource type="Script" uid="uid://b10ys0fgd8nkp" path="res://uis/layer4/menu_content.gd" id="1_0xyei"]
 
 [node name="MenuContent" type="Control"]
 process_mode = 3
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.588235)
+color = Color(0, 0, 0, 0.196078)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

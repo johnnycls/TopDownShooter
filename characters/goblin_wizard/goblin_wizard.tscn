@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk7fkueb0hf8i"]
+
+[ext_resource type="Script" uid="uid://cwraperjfxw5w" path="res://characters/goblin_wizard/goblin_wizard.gd" id="1_hv2ac"]
+[ext_resource type="PackedScene" uid="uid://o3funa1flegi" path="res://assets/character_models/goblin_wizard/goblin_wizard.tscn" id="2_dt0go"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vrth7"]
+height = 1.6
+
+[node name="GoblinWizard" type="CharacterBody3D"]
+script = ExtResource("1_hv2ac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_vrth7")
+
+[node name="GoblinWizard" parent="." instance=ExtResource("2_dt0go")]

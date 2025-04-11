@@ -9,7 +9,7 @@ radius = 0.1
 radius = 0.1
 height = 0.2
 
-[node name="Bullet" type="Area3D"]
+[node name="Bullet" type="Area3D" groups=["bullet"]]
 script = ExtResource("1_1hbe6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

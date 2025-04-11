@@ -181,25 +181,25 @@ _data = {
 &"Armature|walking_man|baselayer": SubResource("Animation_77c0f")
 }
 
-[node name="Animation_Walking_withSkin" instance=ExtResource("1_sk455")]
+[node name="GoblinWizard" instance=ExtResource("1_sk455")]
 
 [node name="GeneralSkeleton" parent="Armature" index="0"]
-bones/0/position = Vector3(0.00336792, 0.980584, 0.0120716)
+bones/0/position = Vector3(0.00336792, 0.980581, 0.0120715)
 bones/0/rotation = Quaternion(0.0202999, 0.0188735, -0.00252797, 0.999613)
 bones/1/rotation = Quaternion(0.0843634, 0.205279, 0.97506, 0.000919015)
 bones/2/rotation = Quaternion(-0.000671759, 0.834157, -0.550703, -0.0301347)
-bones/3/rotation = Quaternion(0.0429175, 0.831666, -0.545507, 0.094408)
+bones/3/rotation = Quaternion(0.0429175, 0.831666, -0.545507, 0.0944079)
 bones/4/rotation = Quaternion(-0.0193175, 0.998942, 0.0351961, -0.0224251)
 bones/5/rotation = Quaternion(-0.0628137, 0.0925244, 0.992902, -0.0404896)
 bones/6/rotation = Quaternion(0.0487887, 0.961129, -0.270824, 0.022463)
 bones/7/rotation = Quaternion(-0.0469122, 0.781372, -0.614715, -0.096866)
-bones/8/rotation = Quaternion(0.0203732, 0.99936, 0.00934377, 0.0278663)
+bones/8/rotation = Quaternion(0.0203732, 0.99936, 0.00934377, 0.0278664)
 bones/9/rotation = Quaternion(0.0352342, -0.0128873, 0.000543998, 0.999296)
-bones/10/rotation = Quaternion(0.0198764, -0.0215701, 0.00972117, 0.999523)
+bones/10/rotation = Quaternion(0.0198764, -0.0215701, 0.00972116, 0.999522)
 bones/11/rotation = Quaternion(-0.00988347, -0.0180443, 0.0085188, 0.999752)
 bones/12/rotation = Quaternion(0.500188, 0.423188, 0.616095, -0.437209)
 bones/13/rotation = Quaternion(0.043639, 0.884373, -0.392424, -0.248965)
-bones/14/rotation = Quaternion(0.203394, -0.65216, 0.165347, 0.711322)
+bones/14/rotation = Quaternion(0.203394, -0.652159, 0.165347, 0.711322)
 bones/15/rotation = Quaternion(0.0445836, 0.709138, -0.0938638, 0.69737)
 bones/16/rotation = Quaternion(0.526685, -0.403409, -0.597414, -0.450511)
 bones/17/rotation = Quaternion(-0.113495, 0.922203, -0.327465, 0.171542)

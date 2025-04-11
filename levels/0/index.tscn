@@ -6,12 +6,12 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xetoy"]
 height = 1.0
-radius = 50.0
+radius = 30.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xetoy"]
 material = ExtResource("3_xetoy")
-top_radius = 50.0
-bottom_radius = 50.0
+top_radius = 30.0
+bottom_radius = 30.0
 height = 1.0
 
 [node name="Level" instance=ExtResource("1_exbhk")]

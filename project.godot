@@ -89,6 +89,11 @@ mouse_cursor/custom_image_hotspot=Vector2(64, 64)
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[global_group]
+
+player=""
+bullet=""
+
 [gui]
 
 theme/custom="res://assets/theme/base_theme.tres"
