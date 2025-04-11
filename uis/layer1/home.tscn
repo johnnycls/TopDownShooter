@@ -55,14 +55,14 @@ theme_override_constants/separation = 15
 layout_mode = 2
 theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
-text = "STORY_MODE"
+text = "BTN_STORY_MODE"
 
 [node name="ExtraBtn" type="Button" parent="VBoxContainer/Buttons"]
 visible = false
 layout_mode = 2
 theme_type_variation = &"Btn1"
 theme_override_font_sizes/font_size = 64
-text = "EXTRA_GAMES"
+text = "BTN_ENDLESS_MODE"
 
 [node name="SettingsBtn" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2

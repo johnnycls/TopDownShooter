@@ -28,10 +28,18 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"boss": "res://dialogic/characters/boss.dch",
 "player": "res://dialogic/characters/player.dch"
 }
 directories/dtl_directory={
-"lv0": "res://dialogic/timelines/lv0.dtl"
+"end": "res://dialogic/timelines/end.dtl",
+"lv0": "res://dialogic/timelines/lv0.dtl",
+"lv1": "res://dialogic/timelines/lv1.dtl",
+"lv2": "res://dialogic/timelines/lv2.dtl",
+"lv3": "res://dialogic/timelines/lv3.dtl",
+"lv4": "res://dialogic/timelines/lv4.dtl",
+"lv5": "res://dialogic/timelines/lv5.dtl",
+"lv6": "res://dialogic/timelines/lv6.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -191,7 +199,7 @@ jump={
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://assets/translations/translation.cmn.translation", "res://assets/translations/translation.en.translation", "res://assets/translations/translation.es.translation", "res://assets/translations/translation.ja.translation", "res://assets/translations/translation.ko.translation", "res://assets/translations/translation.ru.translation", "res://assets/translations/translation.zh.translation")
+locale/translations=PackedStringArray("res://assets/translations/translation.cmn.translation", "res://assets/translations/translation.es.translation", "res://assets/translations/translation.ja.translation", "res://assets/translations/translation.ko.translation", "res://assets/translations/translation.ru.translation", "res://assets/translations/translation.zh.translation", "res://assets/translations/translation.en.translation")
 locale/locale_filter_mode=0
 
 [rendering]

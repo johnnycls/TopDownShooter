@@ -1,0 +1,5 @@
+join boss right
+boss: STAGE_6_VOICE_1
+join player left 
+player: STAGE_6_CASSIDY_1
+boss: STAGE_6_VOICE_2

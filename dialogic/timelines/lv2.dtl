@@ -1,0 +1,7 @@
+join boss right
+boss: STAGE_3_VOICE_1
+join player left
+- STAGE_3_CHOICE_1_RESPONSE
+	boss: STAGE_3_VOICE_2
+- STAGE_3_CHOICE_2_RESPONSE
+	boss: STAGE_3_VOICE_3

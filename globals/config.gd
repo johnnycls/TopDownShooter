@@ -12,4 +12,4 @@ var INIT_PROGRESS: Dictionary = {
 	"level": 0,
 }
 
-const LEVEL_NUM = 5
+const LEVEL_NUM = 7

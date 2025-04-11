@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal dead
+
 @export var speed: float = 5.0
 @export var jump_velocity: float = 6.0
 @export var bullet_scene: PackedScene = preload("res://objects/bullet.tscn")
@@ -21,17 +23,21 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		if not is_on_floor():
-			velocity.y -= gravity * delta
-		else:
-			is_jumping = false
-			
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = jump_velocity
-			is_jumping = true
-			animation_player.play("Jump/mixamo_com")
-			
+		handle_jumping(delta)
 		handle_movement()
+		if global_position.y < -10:
+			dead.emit()
+
+func handle_jumping(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		is_jumping = false
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_velocity
+		is_jumping = true
+		animation_player.play("Jump/mixamo_com")
 
 func handle_movement() -> void:
 	var input_dir = Vector3.ZERO

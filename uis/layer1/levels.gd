@@ -6,7 +6,7 @@ var home_scene = load("res://uis/layer1/home.tscn")
 var lv_btn_scene = preload("res://uis/layer1/lv_btn.tscn")
 
 func _ready() -> void:
-    for i in range(Config.LEVEL_NUM):
+    for i in range(State.progress.get("level", 0)+1):
         var btn: Button = lv_btn_scene.instantiate()
         btn.text = str(i + 1)
         btn.pressed.connect(func(): _on_lv_btn_pressed(i))
