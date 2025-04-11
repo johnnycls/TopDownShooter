@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0dxryj1tni1y"]
+
+[ext_resource type="Script" uid="uid://bt6wjecjerhrq" path="res://objects/bullet_trail.gd" id="1_2d2th"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2d2th"]
+
+[node name="BulletTrail" type="MeshInstance3D"]
+mesh = SubResource("ImmediateMesh_2d2th")
+script = ExtResource("1_2d2th")

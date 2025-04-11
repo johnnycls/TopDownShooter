@@ -9,6 +9,8 @@ signal dead
 @export var shoot_distance: float = 50.0
 @export var shoot_damage: float = 1.0
 
+var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
+
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
 @onready var muzzle: Node3D = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash
@@ -84,6 +86,14 @@ func handle_shooting() -> void:
 		ray_parameters.exclude = [self]
 		
 		var hit = space_state.intersect_ray(ray_parameters)
+
+		var trail = bullet_trail.instantiate()
+		get_tree().root.add_child(trail)
+		trail.create_trail(
+			ray_origin,
+			hit.position if hit else ray_end
+		)
+
 		if hit and hit.collider is Enemy:
 			hit.collider.take_damage(shoot_damage)
 		
