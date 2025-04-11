@@ -3,14 +3,14 @@ extends CharacterBody3D
 signal dead
 
 @export var speed: float = 5.0
-@export var jump_velocity: float = 6.0
+@export var jump_velocity: float = 8.0
 @export var bullet_scene: PackedScene = preload("res://objects/bullet.tscn")
 @export var fire_rate: float = 0.5
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
 
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = 15.0
 var can_move: bool = false
 var can_shoot: bool = true
 var is_shooting: bool = false

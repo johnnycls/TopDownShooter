@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://dhm6i5bw2fg51" path="res://objects/bullet.gd" id="1_1hbe6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f1esg"]
+radius = 0.1
 
 [sub_resource type="SphereMesh" id="SphereMesh_1hbe6"]
+radius = 0.1
+height = 0.2
 
 [node name="Bullet" type="Area3D"]
 script = ExtResource("1_1hbe6")
@@ -16,5 +19,6 @@ shape = SubResource("SphereShape3D_f1esg")
 mesh = SubResource("SphereMesh_1hbe6")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.15, -0.15, -0.15, 0.3, 0.3, 0.3)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

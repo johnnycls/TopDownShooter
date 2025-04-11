@@ -82,6 +82,8 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://1kkcqbwfxe3y"
+mouse_cursor/custom_image_hotspot=Vector2(64, 64)
 
 [editor_plugins]
 

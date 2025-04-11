@@ -1,22 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqmsceqyuqt0p"]
+[gd_scene load_steps=6 format=3 uid="uid://bqmsceqyuqt0p"]
 
 [ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_exbhk"]
 [ext_resource type="Script" uid="uid://cthi5viuvp2j7" path="res://levels/0/index.gd" id="2_tdbyr"]
+[ext_resource type="Material" uid="uid://5yv8et045jsy" path="res://assets/resources/desert.tres" id="3_xetoy"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_exbhk"]
-size = Vector3(50, 1, 50)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xetoy"]
+height = 1.0
+radius = 50.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_tdbyr"]
-size = Vector3(50, 1, 50)
+[sub_resource type="CylinderMesh" id="CylinderMesh_xetoy"]
+material = ExtResource("3_xetoy")
+top_radius = 50.0
+bottom_radius = 50.0
+height = 1.0
 
 [node name="Level" instance=ExtResource("1_exbhk")]
 script = ExtResource("2_tdbyr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map" index="1"]
+[node name="DirectionalLight3D" parent="Map" index="0"]
+light_color = Color(0.68, 0.7225, 0.85, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_exbhk")
+shape = SubResource("CylinderShape3D_xetoy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/StaticBody3D" index="1"]
-mesh = SubResource("BoxMesh_tdbyr")
+mesh = SubResource("CylinderMesh_xetoy")
