@@ -13,4 +13,4 @@ script = ExtResource("1_hv2ac")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
-[node name="GoblinWizard" parent="." instance=ExtResource("2_dt0go")]
+[node name="Model" parent="." instance=ExtResource("2_dt0go")]

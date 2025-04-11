@@ -3,29 +3,36 @@ extends CharacterBody3D
 signal dead
 
 @export var speed: float = 5.0
-@export var jump_velocity: float = 8.0
+@export var jump_velocity: float = 9.0
 @export var bullet_scene: PackedScene = preload("res://objects/bullet.tscn")
 @export var fire_rate: float = 0.5
+@export var max_health: int = 1
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
 
-var gravity: float = 15.0
+var gravity: float = 18.0
 var can_move: bool = false
 var can_shoot: bool = true
 var is_shooting: bool = false
 var is_jumping: bool = false
+var is_celebrating: bool = false
+var health: int = max_health
+
+func init() -> void:
+	global_position = Vector3.ZERO
+	health = max_health
 
 func _process(_delta: float) -> void:
-	if can_move:
+	if can_move and not is_celebrating:
 		handle_rotation()
 		handle_shooting()
 
 func _physics_process(delta: float) -> void:
-	if can_move:
+	if can_move and not is_celebrating:
 		handle_jumping(delta)
 		handle_movement()
-		if global_position.y < -10:
+		if global_position.y < -5:
 			dead.emit()
 
 func handle_jumping(delta: float) -> void:
@@ -105,3 +112,20 @@ func get_mouse_world_position() -> Vector3:
 	
 	var plane = Plane(Vector3.UP, global_position.y)
 	return plane.intersects_ray(ray_origin, camera.project_ray_normal(mouse_pos))
+
+func take_damage(damage: int) -> void:
+	health -= damage
+	if health <= 0:
+		die()
+
+func die() -> void:
+	can_move = false
+	animation_player.play("die/mixamo_com")
+	await animation_player.animation_finished
+	dead.emit()
+
+func win() -> void:
+	is_celebrating = true
+	animation_player.play("Victory/mixamo_com")
+	await animation_player.animation_finished
+	is_celebrating = false

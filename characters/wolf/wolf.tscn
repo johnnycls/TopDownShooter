@@ -13,4 +13,6 @@ script = ExtResource("1_4r4v0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.3)
 shape = SubResource("BoxShape3D_4r4v0")
 
-[node name="Wolf" parent="." instance=ExtResource("2_4r4v0")]
+[node name="Model" parent="." instance=ExtResource("2_4r4v0")]
+
+[editable path="Model"]

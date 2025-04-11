@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6tdrjhtkaipf"]
+[gd_scene load_steps=10 format=3 uid="uid://b6tdrjhtkaipf"]
 
 [ext_resource type="PackedScene" uid="uid://dinw043kwsvoi" path="res://assets/character_models/player/Animation_Walking_withSkin.glb" id="1_6uyk2"]
 [ext_resource type="PackedScene" uid="uid://ytefjakoex8t" path="res://assets/object_models/revolver.glb" id="2_snwwq"]
@@ -6,6 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cx3jvugyoo3fe" path="res://assets/character_models/animations/Jump.fbx" id="3_aursv"]
 [ext_resource type="AnimationLibrary" uid="uid://bqocngck8kuvn" path="res://assets/character_models/animations/Standing Idle.fbx" id="5_8ewog"]
 [ext_resource type="AnimationLibrary" uid="uid://dpfeqfu0wken4" path="res://assets/character_models/animations/die.fbx" id="6_8ewog"]
+[ext_resource type="AnimationLibrary" uid="uid://fubvpnyy6lth" path="res://assets/character_models/animations/Victory.fbx" id="6_tjfug"]
 
 [sub_resource type="Animation" id="Animation_k3cgs"]
 resource_name = "Armature|walking_man|baselayer"
@@ -227,5 +228,6 @@ libraries = {
 &"Gunplay": ExtResource("3_11syx"),
 &"Jump": ExtResource("3_aursv"),
 &"Standing Idle": ExtResource("5_8ewog"),
+&"Victory": ExtResource("6_tjfug"),
 &"die": ExtResource("6_8ewog")
 }

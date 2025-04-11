@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs1cfs0o345fd"]
+[gd_scene load_steps=7 format=3 uid="uid://cs1cfs0o345fd"]
 
 [ext_resource type="PackedScene" uid="uid://du6g8s346ox8m" path="res://assets/character_models/goblin/Animation_Running_withSkin.glb" id="1_0nvcl"]
 [ext_resource type="AnimationLibrary" uid="uid://d1rus07f3w7sg" path="res://assets/character_models/animations/Orc Idle.fbx" id="2_nytff"]
+[ext_resource type="AnimationLibrary" uid="uid://c5itm7ku8ac00" path="res://assets/character_models/animations/Zombie Attack.fbx" id="3_2song"]
+[ext_resource type="AnimationLibrary" uid="uid://dpfeqfu0wken4" path="res://assets/character_models/animations/die.fbx" id="4_tjk7d"]
 
 [sub_resource type="Animation" id="Animation_ml0dl"]
 resource_name = "Armature|running|baselayer"
@@ -212,5 +214,7 @@ bones/22/rotation = Quaternion(0.0334991, -0.000192262, -0.00210881, 0.999437)
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_4qkx3"),
-&"Orc Idle": ExtResource("2_nytff")
+&"Orc Idle": ExtResource("2_nytff"),
+&"Zombie Attack": ExtResource("3_2song"),
+&"die": ExtResource("4_tjk7d")
 }

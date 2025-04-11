@@ -5,43 +5,20 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vrth7"]
 height = 1.6
+radius = 0.2
 
-[node name="Goblin" type="CharacterBody3D"]
+[node name="Goblin" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_txks3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
-[node name="Goblin" parent="." instance=ExtResource("2_jsuiw")]
+[node name="Model" parent="." instance=ExtResource("2_jsuiw")]
 
-[node name="Armature" parent="Goblin" index="0"]
+[node name="Armature" parent="Model" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="GeneralSkeleton" parent="Goblin/Armature" index="0"]
-bones/0/position = Vector3(-0.00102838, 0.722623, 0.0205024)
-bones/0/rotation = Quaternion(0.0731512, -0.0546103, -0.0266268, 0.995469)
-bones/2/rotation = Quaternion(-0.0433321, 0.326779, -0.942754, 0.0505299)
-bones/3/rotation = Quaternion(0.0315811, 0.745231, -0.665875, 0.0155977)
-bones/4/rotation = Quaternion(-0.00280248, 0.998425, -0.0469942, -0.0305259)
-bones/5/rotation = Quaternion(-0.0356076, -0.0221925, 0.996715, -0.0692695)
-bones/6/rotation = Quaternion(0.0914864, 0.937938, -0.32134, 0.0929653)
-bones/7/rotation = Quaternion(-0.0145102, 0.684997, -0.724881, 0.0715316)
-bones/8/rotation = Quaternion(0.0247527, 0.97546, 0.21715, 0.0266829)
-bones/9/rotation = Quaternion(0.105242, 0.12676, 0.0146157, 0.986226)
-bones/10/rotation = Quaternion(-0.0325723, 0.0159839, 0.0129506, 0.999258)
-bones/11/rotation = Quaternion(-0.083563, 0.0066061, 0.00102251, 0.99648)
-bones/12/rotation = Quaternion(0.452978, 0.445325, 0.629871, -0.446944)
-bones/13/rotation = Quaternion(-0.412247, 0.710641, -0.423768, -0.381395)
-bones/14/rotation = Quaternion(0.345883, -0.56017, 0.424171, 0.621815)
-bones/15/rotation = Quaternion(-0.0124801, 0.649223, -0.0535547, 0.758608)
-bones/16/rotation = Quaternion(0.472782, -0.441649, -0.595203, -0.47661)
-bones/17/rotation = Quaternion(-0.0176775, 0.887378, -0.460613, 0.00916957)
-bones/18/rotation = Quaternion(0.490608, 0.419293, -0.531606, 0.548537)
-bones/19/rotation = Quaternion(-0.0705356, -0.583446, -0.149021, 0.795241)
-bones/20/rotation = Quaternion(0.0361848, -0.00944831, -0.0176691, 0.999144)
-bones/22/rotation = Quaternion(0.0334991, -0.000192262, -0.00210881, 0.999437)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[editable path="Goblin"]
+[editable path="Model"]

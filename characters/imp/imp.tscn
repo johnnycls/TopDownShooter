@@ -13,4 +13,6 @@ script = ExtResource("1_53fos")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
-[node name="Imp" parent="." instance=ExtResource("2_53fos")]
+[node name="Model" parent="." instance=ExtResource("2_53fos")]
+
+[editable path="Model"]

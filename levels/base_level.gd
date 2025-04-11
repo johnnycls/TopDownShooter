@@ -2,7 +2,7 @@ class_name Level extends Node3D
 
 @export var spawn_radius: float = 20.0
 @export var spawn_interval: float = 2.0
-@export var goblin_enemy_count: int = 20
+@export var goblin_enemy_count: int = 5
 @export var wolf_enemy_count: int = 0
 @export var imp_enemy_count: int = 0
 @export var goblin_wizard_enemy_count: int = 0
@@ -24,6 +24,7 @@ func _ready() -> void:
     Dialogic.timeline_ended.connect(_on_timeline_ended)
     setup_spawn_timer()
     map.bake_navigation_mesh()
+    player.dead.connect(_on_player_dead)
     
 func _on_timeline_started() -> void:
     player.can_move = false
@@ -33,10 +34,14 @@ func _on_timeline_ended() -> void:
     start()
 
 func start() -> void:
-    player.can_move = true
+    for child in get_children():
+        if child is Enemy:
+            child.queue_free()
     Main.can_open_menu = true
     initialize_enemy_counts()
     spawn_timer.start()
+    player.can_move = true
+    player.init()
 
 func setup_spawn_timer() -> void:
     spawn_timer.wait_time = spawn_interval
@@ -71,6 +76,7 @@ func spawn_enemy() -> void:
     )
     
     enemy.position = spawn_pos
+    enemy.enemy_died.connect(check_win_condition)
     add_child(enemy)
     remaining_enemies[enemy_type] -= 1
 
@@ -111,3 +117,17 @@ func get_enemy_scene(enemy_type: String) -> PackedScene:
         _:
             push_error("Unknown enemy type: " + enemy_type)
             return null
+
+func _on_player_dead() -> void:
+    start()
+
+func check_win_condition() -> void:
+    var no_remaining = remaining_enemies.values().all(func(count): return count <= 0)
+    var no_alive = not get_children().any(func(child): 
+        return child is Enemy and not child.is_dead
+    )
+
+    if no_remaining and no_alive:
+        Main.win()
+        await player.win()
+        Main.back_to_level_selection()
