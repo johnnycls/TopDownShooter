@@ -3,7 +3,7 @@ extends CharacterBody3D
 signal dead
 
 @export var speed: float = 5.0
-@export var jump_velocity: float = 9.0
+@export var jump_velocity: float = 11.0
 @export var fire_rate: float = 0.2
 @export var max_health: int = 1
 @export var shoot_distance: float = 50.0
@@ -16,7 +16,7 @@ var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 @onready var muzzle: Node3D = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash
 @onready var muzzle_timer: Timer = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash/Timer
 
-var gravity: float = 18.0
+var gravity: float = 25.0
 var can_move: bool = false
 var can_shoot: bool = true
 var is_shooting: bool = false

@@ -1,7 +1,7 @@
 extends Camera3D
 
 @export var target: Node
-@export var offset: Vector3 = Vector3(0, 8, 4)
+@export var offset: Vector3 = Vector3(0, 8, 5)
 
 func _process(_delta: float) -> void:
     if target:

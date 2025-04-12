@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3lxcarn44ypk"
-path.s3tc="res://.godot/imported/sky.png-632f8d6fc1018c23980de9b550c73bf4.s3tc.ctex"
+uid="uid://bwi8hqaqulnk0"
+path.s3tc="res://.godot/imported/ruin_gound.png-9acf1640d78615730b7b34c7a3893675.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/sky.png"
-dest_files=["res://.godot/imported/sky.png-632f8d6fc1018c23980de9b550c73bf4.s3tc.ctex"]
+source_file="res://assets/textures/ruin_gound.png"
+dest_files=["res://.godot/imported/ruin_gound.png-9acf1640d78615730b7b34c7a3893675.s3tc.ctex"]
 
 [params]
 

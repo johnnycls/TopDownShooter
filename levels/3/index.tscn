@@ -1,17 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqmsceqyuqt0p"]
+[gd_scene load_steps=11 format=3 uid="uid://677d82lk34ga"]
 
-[ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_exbhk"]
-[ext_resource type="Script" uid="uid://cthi5viuvp2j7" path="res://levels/0/index.gd" id="2_tdbyr"]
-[ext_resource type="Sky" uid="uid://bv8m7mgd60ox3" path="res://assets/resources/morning_sky.tres" id="3_1lqdt"]
-[ext_resource type="Material" uid="uid://5yv8et045jsy" path="res://assets/resources/desert.tres" id="3_xetoy"]
+[ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_0tif1"]
+[ext_resource type="Script" uid="uid://dstvl8j4we0yb" path="res://levels/3/index.gd" id="2_0tif1"]
+[ext_resource type="Texture2D" uid="uid://b0d4n0nwm0ej" path="res://assets/textures/morning_sky.png" id="3_qsn01"]
+[ext_resource type="Material" uid="uid://b1y2pn1vpdqkp" path="res://assets/resources/ruin.tres" id="4_mcm46"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_63c5o"]
 vertices = PackedVector3Array(-26.25, 0.5, 14, -23.5, 0.5, 18.25, -19.5, 0.5, 22.5, 14, 0.5, 26.25, 18.25, 0.5, 23.5, 22.5, 0.5, 19.5, 26.25, 0.5, 14, 3.5, 0.5, 29.5, 8.5, 0.5, 28.5, 26.25, 0.5, -14, 23.5, 0.5, -18.25, 19.5, 0.5, -22.5, -14, 0.5, -26.25, -18.25, 0.5, -23.5, -22.5, 0.5, -19.5, -26.25, 0.5, -14, -3.5, 0.5, -29.5, -8.5, 0.5, -28.5, -29.5, 0.5, -3.5, -29.5, 0.5, 3.5, -28.5, 0.5, 8.5, -28.5, 0.5, -8.5, -14, 0.5, 26.25, -8.5, 0.5, 28.5, -3.5, 0.5, 29.5, 14, 0.5, -26.25, 3.5, 0.5, -29.5, 29.5, 0.5, -3.5, 28.5, 0.5, 8.5, 29.5, 0.5, 3.5, 28.5, 0.5, -8.5, 8.5, 0.5, -28.5)
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 8), PackedInt32Array(5, 8, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 17), PackedInt32Array(14, 17, 16), PackedInt32Array(14, 16, 15), PackedInt32Array(21, 15, 18), PackedInt32Array(18, 15, 19), PackedInt32Array(19, 15, 20), PackedInt32Array(20, 15, 0), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 2), PackedInt32Array(24, 2, 7), PackedInt32Array(7, 2, 0), PackedInt32Array(11, 9, 25), PackedInt32Array(25, 9, 27), PackedInt32Array(25, 27, 26), PackedInt32Array(26, 27, 16), PackedInt32Array(28, 6, 29), PackedInt32Array(29, 6, 27), PackedInt32Array(30, 27, 9), PackedInt32Array(31, 25, 26), PackedInt32Array(6, 7, 27), PackedInt32Array(27, 7, 0), PackedInt32Array(27, 0, 15), PackedInt32Array(27, 15, 16)]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ew5uy"]
+panorama = ExtResource("3_qsn01")
+
+[sub_resource type="Sky" id="Sky_bhpor"]
+sky_material = SubResource("PanoramaSkyMaterial_ew5uy")
+
 [sub_resource type="Environment" id="Environment_63c5o"]
 background_mode = 2
-sky = ExtResource("3_1lqdt")
+sky = SubResource("Sky_bhpor")
 fog_mode = 1
 fog_density = 1.0
 
@@ -20,22 +26,23 @@ height = 1.0
 radius = 30.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xetoy"]
-material = ExtResource("3_xetoy")
+material = ExtResource("4_mcm46")
 top_radius = 30.0
 bottom_radius = 30.0
 height = 1.0
 
-[node name="Level" instance=ExtResource("1_exbhk")]
-script = ExtResource("2_tdbyr")
-spawn_interval = 2.0
-goblin_enemy_count = 50
+[node name="Level" instance=ExtResource("1_0tif1")]
+script = ExtResource("2_0tif1")
+spawn_interval = 1.6
+goblin_enemy_count = 20
+wolf_enemy_count = 20
+imp_enemy_count = 50
 
 [node name="Map" type="NavigationRegion3D" parent="." index="0"]
 navigation_mesh = SubResource("NavigationMesh_63c5o")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map" index="0"]
 transform = Transform3D(0.707107, -0.612372, 0.353553, 0, 0.5, 0.866025, -0.707107, -0.612372, 0.353553, 0, 10, 0)
-light_color = Color(1, 0.933333, 0.9, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Map" index="1"]

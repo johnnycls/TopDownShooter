@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://biknwf1iyxau3" path="res://assets/character_models/wolf/wolf.tscn" id="2_4r4v0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r4v0"]
-size = Vector3(1, 0.7, 1.4)
+size = Vector3(1, 0.9, 1.4)
 
 [node name="Wolf" type="CharacterBody3D"]
 script = ExtResource("1_4r4v0")
@@ -15,7 +15,7 @@ run_animation = "Armature|Unreal Take|baselayer"
 die_animation = ""
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.3)
 shape = SubResource("BoxShape3D_4r4v0")
 
 [node name="Model" parent="." instance=ExtResource("2_4r4v0")]
@@ -24,7 +24,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
 bones/0/position = Vector3(0, 0, -0.587717)
 bones/0/rotation = Quaternion(-0.0663168, -0.0114854, 0.00508389, 0.99772)
-bones/0/scale = Vector3(1.01767, 1.01767, 1.01767)
 bones/1/rotation = Quaternion(0.99937, 0.0022337, -0.0173493, 0.0308795)
 bones/2/rotation = Quaternion(-0.248198, -0.0284126, -0.00801755, 0.968259)
 bones/3/rotation = Quaternion(-0.135376, 0.0146977, -0.0136062, 0.990592)
@@ -41,8 +40,6 @@ bones/13/rotation = Quaternion(-0.19861, -0.0582021, -0.0351537, 0.977717)
 bones/14/rotation = Quaternion(0.175618, -0.0127902, -0.0298461, 0.983923)
 bones/15/rotation = Quaternion(0.0719833, 0.0302089, 0.0701046, 0.99448)
 bones/16/rotation = Quaternion(0.821259, 0.00151662, -0.00688288, 0.570513)
-bones/17/rotation = Quaternion(-0.0415302, -0.160557, -0.116615, 0.979233)
-bones/18/rotation = Quaternion(-0.0362883, 0.159838, 0.116815, 0.979535)
 bones/19/rotation = Quaternion(0.919176, 0.0593018, 0.00460131, 0.389331)
 bones/20/rotation = Quaternion(-0.247254, 0.0913154, 0.0890159, 0.960522)
 bones/21/rotation = Quaternion(-0.242058, -0.146745, -0.177721, 0.942491)
