@@ -2,4 +2,4 @@ extends Level
 
 func _ready() -> void:
     super._ready()
-    Dialogic.start("lv0")
+    Dialogic.start("lv1")

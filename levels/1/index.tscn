@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqmsceqyuqt0p"]
+[gd_scene load_steps=9 format=3 uid="uid://kneunbb5hl2m"]
 
-[ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_exbhk"]
-[ext_resource type="Script" uid="uid://cthi5viuvp2j7" path="res://levels/0/index.gd" id="2_tdbyr"]
-[ext_resource type="Material" uid="uid://5yv8et045jsy" path="res://assets/resources/desert.tres" id="3_xetoy"]
-[ext_resource type="Sky" uid="uid://w0sqhxs5mmua" path="res://assets/resources/sky.tres" id="4_1lqdt"]
+[ext_resource type="PackedScene" uid="uid://cyns08dlvxr40" path="res://levels/base_level.tscn" id="1_m2k60"]
+[ext_resource type="Script" uid="uid://dd8buswcbcerr" path="res://levels/1/index.gd" id="2_m2k60"]
+[ext_resource type="Sky" uid="uid://w0sqhxs5mmua" path="res://assets/resources/sky.tres" id="3_q6d8u"]
+[ext_resource type="Material" uid="uid://5yv8et045jsy" path="res://assets/resources/desert.tres" id="4_7qlxj"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_63c5o"]
 vertices = PackedVector3Array(-26.25, 0.5, 14, -23.5, 0.5, 18.25, -19.5, 0.5, 22.5, 14, 0.5, 26.25, 18.25, 0.5, 23.5, 22.5, 0.5, 19.5, 26.25, 0.5, 14, 3.5, 0.5, 29.5, 8.5, 0.5, 28.5, 26.25, 0.5, -14, 23.5, 0.5, -18.25, 19.5, 0.5, -22.5, -14, 0.5, -26.25, -18.25, 0.5, -23.5, -22.5, 0.5, -19.5, -26.25, 0.5, -14, -3.5, 0.5, -29.5, -8.5, 0.5, -28.5, -29.5, 0.5, -3.5, -29.5, 0.5, 3.5, -28.5, 0.5, 8.5, -28.5, 0.5, -8.5, -14, 0.5, 26.25, -8.5, 0.5, 28.5, -3.5, 0.5, 29.5, 14, 0.5, -26.25, 3.5, 0.5, -29.5, 29.5, 0.5, -3.5, 28.5, 0.5, 8.5, 29.5, 0.5, 3.5, 28.5, 0.5, -8.5, 8.5, 0.5, -28.5)
@@ -11,7 +11,7 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Arr
 
 [sub_resource type="Environment" id="Environment_63c5o"]
 background_mode = 2
-sky = ExtResource("4_1lqdt")
+sky = ExtResource("3_q6d8u")
 fog_mode = 1
 fog_density = 1.0
 
@@ -20,15 +20,16 @@ height = 1.0
 radius = 30.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xetoy"]
-material = ExtResource("3_xetoy")
+material = ExtResource("4_7qlxj")
 top_radius = 30.0
 bottom_radius = 30.0
 height = 1.0
 
-[node name="Level" instance=ExtResource("1_exbhk")]
-script = ExtResource("2_tdbyr")
-spawn_interval = 2.0
-goblin_enemy_count = 50
+[node name="Level" instance=ExtResource("1_m2k60")]
+script = ExtResource("2_m2k60")
+spawn_interval = 1.8
+goblin_enemy_count = 25
+wolf_enemy_count = 35
 
 [node name="Map" type="NavigationRegion3D" parent="." index="0"]
 navigation_mesh = SubResource("NavigationMesh_63c5o")

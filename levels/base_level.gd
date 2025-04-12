@@ -1,16 +1,15 @@
 class_name Level extends Node3D
 
-var spawn_radius: float = 20.0
-var spawn_interval: float
-var goblin_enemy_count: int
-var wolf_enemy_count: int
-var imp_enemy_count: int
-var goblin_wizard_enemy_count: int
-var boss_enemy_count: int
+@export var spawn_radius: float = 28.0
+@export var spawn_interval: float
+@export var goblin_enemy_count: int
+@export var wolf_enemy_count: int
+@export var imp_enemy_count: int
+@export var goblin_wizard_enemy_count: int
+@export var boss_enemy_count: int
 
 @onready var player: Node3D = $Player
 @onready var spawn_timer: Timer = $SpawnTimer
-@onready var map: NavigationRegion3D = $Map
 
 var goblin_scene: PackedScene = preload("res://characters/goblin/goblin.tscn")
 var wolf_scene: PackedScene = preload("res://characters/wolf/wolf.tscn")
@@ -23,7 +22,6 @@ func _ready() -> void:
     Dialogic.timeline_started.connect(_on_timeline_started)
     Dialogic.timeline_ended.connect(_on_timeline_ended)
     setup_spawn_timer()
-    map.bake_navigation_mesh()
     player.dead.connect(_on_player_dead)
     
 func _on_timeline_started() -> void:

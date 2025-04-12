@@ -4,7 +4,7 @@ signal dead
 
 @export var speed: float = 5.0
 @export var jump_velocity: float = 9.0
-@export var fire_rate: float = 0.5
+@export var fire_rate: float = 0.2
 @export var max_health: int = 1
 @export var shoot_distance: float = 50.0
 @export var shoot_damage: float = 1.0
@@ -155,3 +155,11 @@ func win() -> void:
 
 func _on_timer_timeout() -> void:
 	muzzle.hide()
+
+func _on_area_3d_body_entered(body:Node3D) -> void:
+	if body is Enemy and not body.is_dead:
+		take_damage(body.touch_damage)
+
+func _on_area_3d_area_entered(area:Area3D) -> void:
+	if area.is_in_group("bullet"):
+		take_damage(area.damage)
