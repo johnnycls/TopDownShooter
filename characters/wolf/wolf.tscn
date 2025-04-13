@@ -51,6 +51,6 @@ bones/26/rotation = Quaternion(-0.0172836, -0.0370797, -0.0744636, 0.996384)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [editable path="Model"]

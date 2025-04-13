@@ -1,6 +1,7 @@
 extends Node
 
 var select_sound = preload("res://assets/sound_effects/select.mp3")
+var click_sound = preload("res://assets/sound_effects/shoot.mp3")
 
 @onready var ui: CanvasLayer = $UILayer
 @onready var status_bar: CanvasLayer = $StatusBar
@@ -11,6 +12,9 @@ var select_sound = preload("res://assets/sound_effects/select.mp3")
 func select() -> void:
 	Global.play_sound(select_sound, audio_player)
 
+func click() -> void:
+	Global.play_sound(click_sound, audio_player)
+
 func _ready() -> void:
 	add_sound_effects_for_btns(ui)
 	add_sound_effects_for_btns(menu)
@@ -18,12 +22,16 @@ func _ready() -> void:
 	
 func add_sound_effects_for_btns(node: Node) -> void:
 	if node is Button or node is TextureButton:
-		if not node.mouse_entered.is_connected(select):
-			node.mouse_entered.connect(select)
-		if not node.focus_entered.is_connected(select):
-			node.focus_entered.connect(select)
+		if Global.controller == "mouse_keyboard":
+			if not node.mouse_entered.is_connected(select):
+				node.mouse_entered.connect(select)
+		else:
+			if not node.focus_entered.is_connected(select):
+				node.focus_entered.connect(select)
+				
 		if not node.button_down.is_connected(select):
-			node.button_down.connect(select)
+			node.button_down.connect(click)
+
 	for child in node.get_children():
 		add_sound_effects_for_btns(child)
 		

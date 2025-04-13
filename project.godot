@@ -92,6 +92,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 player=""
+bullet=""
 
 [gui]
 
@@ -205,7 +206,7 @@ jump={
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://assets/translations/translation.cmn.translation", "res://assets/translations/translation.es.translation", "res://assets/translations/translation.ja.translation", "res://assets/translations/translation.ko.translation", "res://assets/translations/translation.ru.translation", "res://assets/translations/translation.zh.translation", "res://assets/translations/translation.en.translation")
+locale/translations=PackedStringArray("res://assets/translations/translation.cmn.translation", "res://assets/translations/translation.en.translation", "res://assets/translations/translation.es.translation", "res://assets/translations/translation.ja.translation", "res://assets/translations/translation.ko.translation", "res://assets/translations/translation.ru.translation", "res://assets/translations/translation.zh.translation")
 locale/locale_filter_mode=0
 
 [rendering]

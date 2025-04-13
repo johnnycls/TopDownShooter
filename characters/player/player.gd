@@ -4,17 +4,23 @@ signal dead
 
 @export var speed: float = 5.0
 @export var jump_velocity: float = 11.0
-@export var fire_rate: float = 0.2
+@export var fire_rate: float = 0.4
 @export var max_health: int = 1
 @export var shoot_distance: float = 50.0
 @export var shoot_damage: float = 1.0
 
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
+var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
+var shoot_sound: AudioStream = preload("res://assets/sound_effects/shoot.mp3")
+var hit_sound: AudioStream = preload("res://assets/sound_effects/hit.mp3")
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
 @onready var muzzle: Node3D = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash
 @onready var muzzle_timer: Timer = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash/Timer
+@onready var walk_player: AudioStreamPlayer = $WalkPlayer
+@onready var shoot_player: AudioStreamPlayer = $ShootPlayer
+@onready var hit_player: AudioStreamPlayer = $HitPlayer
 
 var gravity: float = 25.0
 var can_move: bool = false
@@ -60,8 +66,13 @@ func handle_movement() -> void:
 	if !is_shooting and !is_jumping:
 		if input_dir != Vector3.ZERO:
 			animation_player.play("Armature|walking_man|baselayer")
+			if not walk_player.playing:
+				walk_player.stream = walk_sound
+				walk_player.play()
 		else:
 			animation_player.play("Standing Idle/mixamo_com")
+			if walk_player.playing:
+				walk_player.stop()
 	
 	var current_y = velocity.y
 	velocity = input_dir * speed
@@ -96,10 +107,12 @@ func handle_shooting() -> void:
 
 		if hit and hit.collider is Enemy:
 			hit.collider.take_damage(shoot_damage)
+			Global.play_sound(hit_sound, hit_player)
 		
 		is_shooting = true
 		can_shoot = false
 		
+		Global.play_sound(shoot_sound, shoot_player)
 		animation_player.play("Gunplay/mixamo_com")
 		shoot_animation()
 		muzzle.show()

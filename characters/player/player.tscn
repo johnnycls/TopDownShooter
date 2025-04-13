@@ -6,7 +6,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3eadt"]
 height = 1.6
-radius = 0.2
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxgcw"]
 transparency = 1
@@ -86,7 +86,11 @@ omni_attenuation = 2.0
 wait_time = 0.05
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="WalkPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Area3D" type="Area3D" parent="."]
 

@@ -8,6 +8,7 @@ signal enemy_died
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var is_dead: bool = false
 var player: Node3D = null
