@@ -1,6 +1,6 @@
 class_name Bullet extends Area3D
 
-@export var speed: float = 20.0
+@export var speed: float = 10.0
 @export var damage: int = 1
 
 var direction: Vector3

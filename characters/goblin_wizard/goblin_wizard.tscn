@@ -9,13 +9,20 @@ radius = 0.6
 
 [node name="GoblinWizard" type="CharacterBody3D"]
 script = ExtResource("1_hv2ac")
+speed = 5.0
+attack_range = 8.5
+attack_animation = "Wizard Small Attack/mixamo_com"
+run_animation = "Armature|walking_man|baselayer"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
 [node name="Model" parent="." instance=ExtResource("2_dt0go")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[editable path="Model"]

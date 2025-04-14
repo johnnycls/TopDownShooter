@@ -1,10 +1,10 @@
 extends Camera3D
 
 @export var target: Node
-@export var offset: Vector3 = Vector3(0, 8, 5)
+@export var offset: Vector3 = Vector3(0, 10, 4)
 
 func _process(_delta: float) -> void:
     if target:
-        var target_pos = Vector3(target.position.x, 0, target.position.z)
+        var target_pos = Vector3(target.position.x, 0, target.position.z+1)
         global_position = target_pos + offset
         look_at(target_pos, Vector3.UP)

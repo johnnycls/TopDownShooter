@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal dead
 
-@export var speed: float = 5.0
+@export var speed: float = 7.5
 @export var jump_velocity: float = 11.0
 @export var fire_rate: float = 0.4
 @export var max_health: int = 1
@@ -88,7 +88,7 @@ func handle_rotation() -> void:
 func handle_shooting() -> void:
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		var target = get_mouse_world_position()
-		var ray_origin = gun_marker.global_position
+		var ray_origin = global_position + Vector3.UP
 		var ray_direction = ray_origin.direction_to(target)
 		
 		var space_state = get_world_3d().direct_space_state
@@ -101,7 +101,7 @@ func handle_shooting() -> void:
 		var trail = bullet_trail.instantiate()
 		get_tree().root.add_child(trail)
 		trail.create_trail(
-			ray_origin,
+			gun_marker.global_position,
 			hit.position if hit else ray_end
 		)
 

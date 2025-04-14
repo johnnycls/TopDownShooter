@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://o3funa1flegi"]
+[gd_scene load_steps=8 format=3 uid="uid://o3funa1flegi"]
 
 [ext_resource type="PackedScene" uid="uid://b4aqu88616l7y" path="res://assets/character_models/goblin_wizard/Animation_Walking_withSkin.glb" id="1_sk455"]
 [ext_resource type="AnimationLibrary" uid="uid://d1rus07f3w7sg" path="res://assets/character_models/animations/Orc Idle.fbx" id="2_wf1cx"]
 [ext_resource type="AnimationLibrary" uid="uid://b35u88ihdswm4" path="res://assets/character_models/animations/Wizard Big Attack.fbx" id="3_whcwb"]
 [ext_resource type="AnimationLibrary" uid="uid://de50rkmbsvych" path="res://assets/character_models/animations/Wizard Small Attack.fbx" id="4_r28wt"]
+[ext_resource type="AnimationLibrary" uid="uid://dpfeqfu0wken4" path="res://assets/character_models/animations/die.fbx" id="5_r28wt"]
 
 [sub_resource type="Animation" id="Animation_77c0f"]
 resource_name = "Armature|walking_man|baselayer"
@@ -216,5 +217,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_1yalk"),
 &"Orc Idle": ExtResource("2_wf1cx"),
 &"Wizard Big Attack": ExtResource("3_whcwb"),
-&"Wizard Small Attack": ExtResource("4_r28wt")
+&"Wizard Small Attack": ExtResource("4_r28wt"),
+&"die": ExtResource("5_r28wt")
 }

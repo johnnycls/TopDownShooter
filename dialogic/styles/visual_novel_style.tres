@@ -58,7 +58,7 @@ overrides = {
 "next_indicator_texture": "\"res://assets/ui_sprites/dialogue/pointer.png\"",
 "normal_font": "\"res://assets/fonts/NotoSerifTC-Regular.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
-"text_size": "32.0",
+"text_size": "28.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
 "text_use_global_size": "false"
@@ -103,4 +103,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_8jw60")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "13"
