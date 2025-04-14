@@ -46,6 +46,9 @@ func show_status_bar() -> void:
 func hide_status_bar() -> void:
 	hud.hide_status_bar()
 
+func update_status(new_status: Dictionary) -> void:
+	hud.update_status(new_status)
+
 func popup(page: Control) -> void:
 	hud.popup(page)
 	

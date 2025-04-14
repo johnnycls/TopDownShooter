@@ -14,6 +14,6 @@ func open() -> void:
 		status_bar_content = status_bar_content_scene.instantiate()
 		add_child(status_bar_content)
 
-func update_status() -> void:
+func update_status(new_status: Dictionary) -> void:
 	if status_bar_content!=null:
-		status_bar_content.update_status()
+		status_bar_content.update_status(new_status)

@@ -17,6 +17,7 @@ var imp_scene: PackedScene = preload("res://characters/imp/imp.tscn")
 var goblin_wizard_scene: PackedScene = preload("res://characters/goblin_wizard/goblin_wizard.tscn")
 var boss_scene: PackedScene = preload("res://characters/boss/boss.tscn")
 var remaining_enemies = {}
+var enemy_alive: int = 0
 
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_timeline_started)
@@ -37,9 +38,14 @@ func start() -> void:
 			child.queue_free()
 	Main.can_open_menu = true
 	initialize_enemy_counts()
+	enemy_alive = remaining_enemies.values().reduce(func(a, b): return a + b, 0)
 	spawn_timer.start()
 	player.can_move = true
 	player.init()
+	Main.show_status_bar()
+	Main.update_status({
+		"remaining_enemies": enemy_alive
+	})
 
 func setup_spawn_timer() -> void:
 	spawn_timer.wait_time = spawn_interval
@@ -56,6 +62,16 @@ func initialize_enemy_counts() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
+
+func _on_enemy_died() -> void:
+	enemy_alive -= 1
+	Main.update_status({
+		"remaining_enemies": enemy_alive
+	})
+	if enemy_alive <= 0:
+		Main.win()
+		await player.win()
+		Main.back_to_level_selection()
 
 func spawn_enemy() -> void:
 	var enemy_type = choose_enemy_type()
@@ -74,7 +90,7 @@ func spawn_enemy() -> void:
 	)
 	
 	enemy.position = spawn_pos
-	enemy.enemy_died.connect(check_win_condition)
+	enemy.enemy_died.connect(_on_enemy_died)
 	add_child(enemy)
 	remaining_enemies[enemy_type] -= 1
 
@@ -118,14 +134,3 @@ func get_enemy_scene(enemy_type: String) -> PackedScene:
 
 func _on_player_dead() -> void:
 	start()
-
-func check_win_condition() -> void:
-	var no_remaining = remaining_enemies.values().all(func(count): return count <= 0)
-	var no_alive = not get_children().any(func(child): 
-		return child is Enemy and not child.is_dead
-	)
-
-	if no_remaining and no_alive:
-		Main.win()
-		await player.win()
-		Main.back_to_level_selection()

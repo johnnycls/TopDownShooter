@@ -46,7 +46,6 @@ func change_ui(page: Control) -> void:
 	
 func show_status_bar() -> void:
 	status_bar.open()
-	update_status()
 	
 func hide_status_bar() -> void:
 	status_bar.close()
@@ -63,6 +62,6 @@ func open_menu() -> void:
 func close_menu() -> void:
 	menu.close_menu()
 	
-func update_status() -> void:
-	status_bar.update_status()
+func update_status(new_status: Dictionary) -> void:
+	status_bar.update_status(new_status)
 	add_sound_effects_for_btns(status_bar)
