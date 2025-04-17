@@ -1,0 +1,13 @@
+[gd_resource type="SphereMesh" load_steps=3 format=3 uid="uid://dq6eb5gytgarc"]
+
+[ext_resource type="Texture2D" uid="uid://wgbxp7i3h71e" path="res://assets/textures/fire_bullet.png" id="1_uc4bo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbcx7"]
+shading_mode = 0
+albedo_color = Color(0.75, 0.375, 0.375, 1)
+albedo_texture = ExtResource("1_uc4bo")
+
+[resource]
+material = SubResource("StandardMaterial3D_xbcx7")
+radius = 0.1
+height = 0.2

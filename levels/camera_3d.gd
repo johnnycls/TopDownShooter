@@ -5,6 +5,6 @@ extends Camera3D
 
 func _process(_delta: float) -> void:
     if target:
-        var target_pos = Vector3(target.position.x, 0, target.position.z+1)
+        var target_pos = Vector3(target.position.x, 0, target.position.z+2)
         global_position = target_pos + offset
         look_at(target_pos, Vector3.UP)

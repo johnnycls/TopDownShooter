@@ -1,33 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dec8f1xxw4lww"]
+[gd_scene load_steps=3 format=3 uid="uid://dec8f1xxw4lww"]
 
-[ext_resource type="Script" uid="uid://dhm6i5bw2fg51" path="res://objects/bullet.gd" id="1_nj75g"]
-[ext_resource type="Texture2D" uid="uid://ylcqo6x4us8a" path="res://assets/textures/dark_bullet.png" id="2_nj75g"]
+[ext_resource type="PackedScene" uid="uid://cnf6jljsapiie" path="res://objects/bullet.tscn" id="1_rd21c"]
+[ext_resource type="SphereMesh" uid="uid://b32577jfowcx5" path="res://assets/resources/dark_bullet_mat.tres" id="2_nj75g"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_f1esg"]
-radius = 0.1
+[node name="Bullet" instance=ExtResource("1_rd21c")]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbcx7"]
-shading_mode = 0
-albedo_color = Color(0.75, 0, 0.375, 1)
-albedo_texture = ExtResource("2_nj75g")
-
-[sub_resource type="SphereMesh" id="SphereMesh_1hbe6"]
-material = SubResource("StandardMaterial3D_xbcx7")
-radius = 0.1
-height = 0.2
-
-[node name="Bullet" type="Area3D" groups=["bullet"]]
-script = ExtResource("1_nj75g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_f1esg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.173648, -0.984808, 0, 0.984808, -0.173648, 0, 0, 0)
-mesh = SubResource("SphereMesh_1hbe6")
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
-aabb = AABB(-0.15, -0.15, -0.15, 0.3, 0.3, 0.3)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_nj75g")

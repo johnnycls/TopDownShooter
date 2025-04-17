@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ovwfumq6ajhn"]
+
+[ext_resource type="PackedScene" uid="uid://cnf6jljsapiie" path="res://objects/bullet.tscn" id="1_g5cwt"]
+[ext_resource type="SphereMesh" uid="uid://dq6eb5gytgarc" path="res://assets/resources/fire_bullet_mat.tres" id="2_jt8tv"]
+
+[node name="Bullet" instance=ExtResource("1_g5cwt")]
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_jt8tv")

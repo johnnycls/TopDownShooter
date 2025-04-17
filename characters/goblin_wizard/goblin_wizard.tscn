@@ -8,9 +8,11 @@ height = 1.6
 radius = 0.6
 
 [node name="GoblinWizard" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_hv2ac")
 speed = 5.0
-attack_range = 8.5
+attack_range = 11.0
 attack_animation = "Wizard Small Attack/mixamo_com"
 run_animation = "Armature|walking_man|baselayer"
 

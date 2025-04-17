@@ -1,22 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnf6jljsapiie"]
+[gd_scene load_steps=3 format=3 uid="uid://cnf6jljsapiie"]
 
 [ext_resource type="Script" uid="uid://dhm6i5bw2fg51" path="res://objects/bullet.gd" id="1_1hbe6"]
-[ext_resource type="Texture2D" uid="uid://wgbxp7i3h71e" path="res://assets/textures/fire_bullet.png" id="2_3ndsa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f1esg"]
 radius = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbcx7"]
-shading_mode = 0
-albedo_color = Color(0.75, 0.375, 0.375, 1)
-albedo_texture = ExtResource("2_3ndsa")
-
-[sub_resource type="SphereMesh" id="SphereMesh_1hbe6"]
-material = SubResource("StandardMaterial3D_xbcx7")
-radius = 0.1
-height = 0.2
-
 [node name="Bullet" type="Area3D" groups=["bullet"]]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_1hbe6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -24,7 +15,6 @@ shape = SubResource("SphereShape3D_f1esg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.173648, -0.984808, 0, 0.984808, -0.173648, 0, 0, 0)
-mesh = SubResource("SphereMesh_1hbe6")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 aabb = AABB(-0.15, -0.15, -0.15, 0.3, 0.3, 0.3)

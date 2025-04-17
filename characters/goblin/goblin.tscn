@@ -8,6 +8,8 @@ height = 1.6
 radius = 0.6
 
 [node name="Goblin" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_txks3")
 speed = 5.0
 

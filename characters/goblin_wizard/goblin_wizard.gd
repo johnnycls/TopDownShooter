@@ -3,7 +3,7 @@ extends NormalEnemy
 @export var bullet_count: int = 3
 @export var spread_angle: float = 30.0
 
-var fire_bullet_scene = preload("res://objects/bullet.tscn")
+var fire_bullet_scene = preload("res://objects/fire_bullet.tscn")
 
 func attack() -> void:
     super.attack()
