@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func start() -> void:
     super.start()
-    BgmPlayer.play_bgm(1)
+    BgmPlayer.play_bgm(3)

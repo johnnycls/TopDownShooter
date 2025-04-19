@@ -148,6 +148,7 @@ func take_damage(damage: int) -> void:
 
 func die() -> void:
 	can_move = false
+	BgmPlayer.stop_bgm()
 	animation_player.play("die/mixamo_com")
 	await animation_player.animation_finished
 	dead.emit()

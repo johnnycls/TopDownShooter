@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://l1qgmux4wypm"
-path="res://.godot/imported/The Lone Rider Last Battle.wav-a5bed8692b7b72b4d5d6f7943129592d.sample"
+path="res://.godot/imported/The Lone Rider.wav-60e0c80450621a106974fe1cc4feb7cf.sample"
 
 [deps]
 
-source_file="res://assets/bgm/The Lone Rider Last Battle.wav"
-dest_files=["res://.godot/imported/The Lone Rider Last Battle.wav-a5bed8692b7b72b4d5d6f7943129592d.sample"]
+source_file="res://assets/bgm/The Lone Rider.wav"
+dest_files=["res://.godot/imported/The Lone Rider.wav-60e0c80450621a106974fe1cc4feb7cf.sample"]
 
 [params]
 

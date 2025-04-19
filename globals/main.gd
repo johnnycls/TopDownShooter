@@ -24,7 +24,6 @@ func start_game(level: int) -> void:
 	Game.start_game(level)
 
 func back_to_home_screen() -> void:
-	BgmPlayer.play_bgm(0)
 	Game.end_game()
 	current_level = -1
 	change_ui(home_scene.instantiate())
@@ -32,7 +31,6 @@ func back_to_home_screen() -> void:
 	can_open_menu = false
 
 func back_to_level_selection() -> void:
-	BgmPlayer.play_bgm(0)
 	Game.end_game()
 	current_level = -1
 	change_ui(levels_scene.instantiate())

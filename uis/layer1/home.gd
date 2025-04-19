@@ -7,6 +7,7 @@ var settings_scene = load("res://uis/layer1/settings.tscn")
 var levels_scene = load("res://uis/layer1/levels.tscn")
 
 func _ready() -> void:
+	BgmPlayer.play_bgm(0)
 	Main.ui_changed.connect(init)
 
 func init():
