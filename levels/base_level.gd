@@ -70,6 +70,7 @@ func _on_enemy_died() -> void:
 	})
 	if enemy_alive <= 0:
 		Main.win()
+		BgmPlayer.play_bgm(2)
 		await player.win()
 		Main.back_to_level_selection()
 

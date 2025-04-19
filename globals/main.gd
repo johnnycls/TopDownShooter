@@ -24,6 +24,7 @@ func start_game(level: int) -> void:
 	Game.start_game(level)
 
 func back_to_home_screen() -> void:
+	BgmPlayer.play_bgm(0)
 	Game.end_game()
 	current_level = -1
 	change_ui(home_scene.instantiate())
@@ -31,6 +32,7 @@ func back_to_home_screen() -> void:
 	can_open_menu = false
 
 func back_to_level_selection() -> void:
+	BgmPlayer.play_bgm(0)
 	Game.end_game()
 	current_level = -1
 	change_ui(levels_scene.instantiate())
@@ -69,4 +71,4 @@ func _input(event: InputEvent) -> void:
 		Dialogic.Inputs.auto_skip.enabled = false
 
 func win(new_progress: Dictionary = {"win": true}) -> void:
-	State.save_progress({str(current_level): new_progress})
+	State.merge_progress({str(current_level): new_progress})
