@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bva0tts503ag4"
+path="res://.godot/imported/Lasso the Stars.wav-2da4b7c2296c8db10c7101ef0ce54525.sample"
+
+[deps]
+
+source_file="res://assets/bgm/Lasso the Stars.wav"
+dest_files=["res://.godot/imported/Lasso the Stars.wav-2da4b7c2296c8db10c7101ef0ce54525.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

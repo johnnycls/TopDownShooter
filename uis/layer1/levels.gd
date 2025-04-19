@@ -6,11 +6,12 @@ var home_scene = load("res://uis/layer1/home.tscn")
 var lv_btn_scene = preload("res://uis/layer1/lv_btn.tscn")
 
 func _ready() -> void:
-    for i in range(State.progress.get("level", 0)+1):
-        var btn: Button = lv_btn_scene.instantiate()
-        btn.text = str(i + 1)
-        btn.pressed.connect(func(): _on_lv_btn_pressed(i))
-        btn_container.add_child(btn)
+    for i in range(Config.LEVEL_NUM):
+        if i==0 or State.progress.get(str(i-1), {}).get("win", false):
+            var btn: Button = lv_btn_scene.instantiate()
+            btn.text = str(i + 1)
+            btn.pressed.connect(func(): _on_lv_btn_pressed(i))
+            btn_container.add_child(btn)
     
 func _on_lv_btn_pressed(level: int) -> void:
     Main.start_game(level)

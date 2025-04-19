@@ -12,6 +12,7 @@ var current_level: int = -1
 var can_open_menu: bool = false
 
 func _ready() -> void:
+	BgmPlayer.play_bgm(0)
 	change_ui(home_scene.instantiate())
 
 func clear_ui() -> void:
@@ -67,6 +68,5 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("auto_skip"):
 		Dialogic.Inputs.auto_skip.enabled = false
 
-func win() -> void:
-	if current_level >= State.progress.get("level", 0):
-		State.save_progress({"level": current_level+1})
+func win(new_progress: Dictionary = {"win": true}) -> void:
+	State.save_progress({str(current_level): new_progress})

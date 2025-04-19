@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wm2l313h6sb7"
+path="res://.godot/imported/Cowgirl's Resolve Battle.wav-fc066e28e727d70d24c7c71557fdcab1.sample"
+
+[deps]
+
+source_file="res://assets/bgm/Cowgirl's Resolve Battle.wav"
+dest_files=["res://.godot/imported/Cowgirl's Resolve Battle.wav-fc066e28e727d70d24c7c71557fdcab1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

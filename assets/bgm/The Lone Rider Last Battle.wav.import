@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://l1qgmux4wypm"
+path="res://.godot/imported/The Lone Rider Last Battle.wav-a5bed8692b7b72b4d5d6f7943129592d.sample"
+
+[deps]
+
+source_file="res://assets/bgm/The Lone Rider Last Battle.wav"
+dest_files=["res://.godot/imported/The Lone Rider Last Battle.wav-a5bed8692b7b72b4d5d6f7943129592d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

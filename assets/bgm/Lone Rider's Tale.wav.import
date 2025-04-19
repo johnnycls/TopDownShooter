@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://by23j7hvuv0kk"
+path="res://.godot/imported/Lone Rider's Tale.wav-7e327c0127064dd5c8e590356d69ea07.sample"
+
+[deps]
+
+source_file="res://assets/bgm/Lone Rider's Tale.wav"
+dest_files=["res://.godot/imported/Lone Rider's Tale.wav-7e327c0127064dd5c8e590356d69ea07.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

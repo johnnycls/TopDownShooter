@@ -18,7 +18,6 @@ func click() -> void:
 func _ready() -> void:
 	add_sound_effects_for_btns(ui)
 	menu.menu_opened.connect(func(): add_sound_effects_for_btns(menu))
-	State.progress_updated.connect(update_status)
 	
 func add_sound_effects_for_btns(node: Node) -> void:
 	if node is BaseButton:

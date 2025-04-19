@@ -21,9 +21,10 @@ func _ready() -> void:
         return
 
 func take_damage(damage: int) -> void:
-    health -= damage
-    if health <= 0:
-        die()
+    if not is_dead:
+        health -= damage
+        if health <= 0:
+            die()
 
 func play_die_animation() -> void:
     if die_animation != "":
