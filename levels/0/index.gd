@@ -1,6 +1,10 @@
-extends Level
+extends SingleSceneLevel
 
 func _ready() -> void:
     super._ready()
-    BgmPlayer.play_bgm(1)
+    BgmPlayer.stop_bgm()
     Dialogic.start("lv0")
+
+func start() -> void:
+    super.start()
+    BgmPlayer.play_bgm(1)

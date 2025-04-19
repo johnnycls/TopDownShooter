@@ -43,7 +43,7 @@ func play_bgm(bgm_no: int, fade_duration: float=0, from_position: float=0):
 			play(from_position)
 		current_bgm = bgm_no
 
-func stop_bgm(fade_duration: float = 1.0):
+func stop_bgm(fade_duration: float = 0.0):
 	current_bgm = -1
 	if playing:
 		if fade_duration > 0:

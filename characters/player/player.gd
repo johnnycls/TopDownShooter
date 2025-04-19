@@ -12,7 +12,6 @@ signal dead
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
 var shoot_sound: AudioStream = preload("res://assets/sound_effects/shoot.mp3")
-var hit_sound: AudioStream = preload("res://assets/sound_effects/hit.mp3")
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
@@ -20,30 +19,29 @@ var hit_sound: AudioStream = preload("res://assets/sound_effects/hit.mp3")
 @onready var muzzle_timer: Timer = $Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver/MuzzleFlash/Timer
 @onready var walk_player: AudioStreamPlayer = $WalkPlayer
 @onready var shoot_player: AudioStreamPlayer = $ShootPlayer
-@onready var hit_player: AudioStreamPlayer = $HitPlayer
 
 var gravity: float = 25.0
 var can_move: bool = false
 var can_shoot: bool = true
 var is_shooting: bool = false
 var is_jumping: bool = false
-var is_celebrating: bool = false
 var health: int = max_health
 
 func init() -> void:
 	global_position = Vector3.ZERO
 	health = max_health
+	can_move = true
 
 func _process(_delta: float) -> void:
-	if can_move and not is_celebrating:
+	if can_move:
 		handle_rotation()
 		handle_shooting()
 
 func _physics_process(delta: float) -> void:
-	if can_move and not is_celebrating:
+	if can_move:
 		handle_jumping(delta)
 		handle_movement()
-		if global_position.y < -5:
+		if global_position.y < -10:
 			dead.emit()
 
 func handle_jumping(delta: float) -> void:
@@ -107,13 +105,11 @@ func handle_shooting() -> void:
 
 		if hit and hit.collider is Enemy:
 			hit.collider.take_damage(shoot_damage)
-			Global.play_sound(hit_sound, hit_player)
 		
 		is_shooting = true
 		can_shoot = false
 		
 		Global.play_sound(shoot_sound, shoot_player)
-		animation_player.play("Gunplay/mixamo_com")
 		shoot_animation()
 		muzzle.show()
 		muzzle_timer.start()
@@ -122,12 +118,9 @@ func handle_shooting() -> void:
 		can_shoot = true
 
 func shoot_animation() -> void:
+	animation_player.play("Gunplay/mixamo_com")
 	await animation_player.animation_finished
 	is_shooting = false
-	if velocity.x == 0 and velocity.z == 0:
-		animation_player.play("Standing Idle/mixamo_com")
-	else:
-		animation_player.play("Armature|walking_man|baselayer")
 	
 func get_mouse_world_position() -> Vector3:
 	var camera = get_viewport().get_camera_3d()
@@ -160,11 +153,9 @@ func die() -> void:
 	dead.emit()
 
 func win() -> void:
-	is_celebrating = true
+	can_move = false
 	animation_player.play("Victory/mixamo_com")
 	await animation_player.animation_finished
-	is_celebrating = false
-
 
 func _on_timer_timeout() -> void:
 	muzzle.hide()

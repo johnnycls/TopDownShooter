@@ -1,4 +1,4 @@
-class_name Level extends Node3D
+class_name SingleSceneLevel extends Node3D
 
 @export var spawn_radius: float = 28.0
 @export var spawn_interval: float
@@ -40,7 +40,6 @@ func start() -> void:
 	initialize_enemy_counts()
 	enemy_alive = remaining_enemies.values().reduce(func(a, b): return a + b, 0)
 	spawn_timer.start()
-	player.can_move = true
 	player.init()
 	Main.show_status_bar()
 	Main.update_status({
@@ -70,8 +69,9 @@ func _on_enemy_died() -> void:
 	})
 	if enemy_alive <= 0:
 		Main.win()
+		player.win()
 		BgmPlayer.play_bgm(2)
-		await player.win()
+		await BgmPlayer.finished
 		Main.back_to_level_selection()
 
 func spawn_enemy() -> void:
