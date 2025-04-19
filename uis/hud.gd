@@ -17,20 +17,22 @@ func click() -> void:
 
 func _ready() -> void:
 	add_sound_effects_for_btns(ui)
-	add_sound_effects_for_btns(menu)
+	menu.menu_opened.connect(func(): add_sound_effects_for_btns(menu))
 	State.progress_updated.connect(update_status)
 	
 func add_sound_effects_for_btns(node: Node) -> void:
-	if node is Button or node is TextureButton:
+	if node is BaseButton:
 		if Global.controller == "mouse_keyboard":
 			if not node.mouse_entered.is_connected(select):
 				node.mouse_entered.connect(select)
 		else:
 			if not node.focus_entered.is_connected(select):
 				node.focus_entered.connect(select)
-				
 		if not node.button_down.is_connected(select):
-			node.button_down.connect(click)
+			if node is OptionButton:
+				node.button_down.connect(select)
+			else:
+				node.button_down.connect(click)
 
 	for child in node.get_children():
 		add_sound_effects_for_btns(child)
@@ -41,8 +43,8 @@ func clear_ui() -> void:
 
 func change_ui(page: Control) -> void:
 	clear_ui()
-	ui.add_child(page)
 	add_sound_effects_for_btns(page)
+	ui.add_child(page)
 	
 func show_status_bar() -> void:
 	status_bar.open()

@@ -1,6 +1,7 @@
 extends Control
 
 const home := preload("res://uis/layer1/home.tscn")
+var click_sound = preload("res://assets/sound_effects/shoot.mp3")
 
 @onready var back_btn: Button = $BackBtn
 @onready var lang_select: OptionButton = $LangSelect
@@ -29,3 +30,4 @@ func _on_back_btn_pressed() -> void:
 func _on_lang_select_item_selected(id: int) -> void:
 	var code: String = Config.LANG_IDS_TO_CODES[id]
 	TranslationServer.set_locale(code)
+	Global.play_sound(click_sound)
