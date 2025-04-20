@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm1edbkp2lpto"]
+
+[ext_resource type="Texture2D" uid="uid://3fabu3u2xoby" path="res://assets/ui_sprites/other/player_guide.png" id="1_aqdnn"]
+
+[node name="Guide" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_aqdnn")

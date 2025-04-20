@@ -12,6 +12,7 @@ signal dead
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
 var shoot_sound: AudioStream = preload("res://assets/sound_effects/shoot.mp3")
+var fall_sound: AudioStream = preload("res://assets/sound_effects/fall.mp3")
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
@@ -150,6 +151,7 @@ func die() -> void:
 	can_move = false
 	BgmPlayer.stop_bgm()
 	animation_player.play("die/mixamo_com")
+	# Global.play_sound(fall_sound, walk_player)
 	await animation_player.animation_finished
 	dead.emit()
 

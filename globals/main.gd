@@ -70,3 +70,6 @@ func _input(event: InputEvent) -> void:
 
 func win(new_progress: Dictionary = {"win": true}) -> void:
 	State.merge_progress({str(current_level): new_progress})
+
+func show_control_guide() -> void:
+	hud.popup(load("res://uis/layer3/control_guide.tscn").instantiate())

@@ -1,5 +1,9 @@
 join boss right
 boss: STAGE_1_VOICE_1
-join player left 
+join player left
 player: STAGE_1_CASSIDY_1
 boss: STAGE_1_VOICE_2
+leave --All--
+do Main.show_control_guide()
+[wait_input]
+do Main.close_popup()
