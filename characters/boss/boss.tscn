@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://qfm1a8ji00m2"]
+[gd_scene load_steps=5 format=3 uid="uid://qfm1a8ji00m2"]
 
 [ext_resource type="Script" uid="uid://p6lyxp1rkg5s" path="res://characters/boss/boss.gd" id="1_v5jhe"]
 [ext_resource type="PackedScene" uid="uid://l654ii2yi8j7" path="res://assets/character_models/boss/boss.tscn" id="2_v5jhe"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vrth7"]
 height = 1.6
-radius = 0.75
+radius = 0.6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v5jhe"]
+height = 0.3
+radius = 0.3
 
 [node name="Boss" type="CharacterBody3D"]
 script = ExtResource("1_v5jhe")
@@ -13,6 +17,14 @@ script = ExtResource("1_v5jhe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
+
+[node name="Killzone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+shape = SubResource("CylinderShape3D_v5jhe")
 
 [node name="Boss" parent="." instance=ExtResource("2_v5jhe")]
 

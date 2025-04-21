@@ -10,12 +10,14 @@ signal dead
 
 @export var min_jump_velocity: float = 4.0
 @export var max_jump_velocity: float = 10.0
-@export var jump_duration: float = 0.35
+@export var jump_duration: float = 0.4
 
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
 var shoot_sound: AudioStream = preload("res://assets/sound_effects/shoot.mp3")
 var fall_sound: AudioStream = preload("res://assets/sound_effects/fall.mp3")
+var jump_sound: AudioStream = preload("res://assets/sound_effects/jump.wav")
+var land_sound: AudioStream = preload("res://assets/sound_effects/land.wav")
 
 @onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var gun_marker: Marker3D = $GunPosition
@@ -60,10 +62,13 @@ func handle_jumping(delta: float) -> void:
 			var t = jump_time / jump_duration
 			velocity.y = lerp(max_jump_velocity, min_jump_velocity, t)
 	else:
+		if is_jumping:
+			Global.play_sound(land_sound, walk_player)
 		is_jumping = false
 		jump_time = 0.0
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		Global.play_sound(jump_sound, walk_player)
 		velocity.y = max_jump_velocity
 		is_jumping = true
 		is_jump_pressed = true
@@ -166,6 +171,8 @@ func take_damage(damage: int) -> void:
 
 func die() -> void:
 	can_move = false
+	is_jumping = false
+	jump_time = 0.0
 	BgmPlayer.stop_bgm()
 	animation_player.play("die/mixamo_com")
 	# Global.play_sound(fall_sound, walk_player)

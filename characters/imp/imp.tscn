@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byc7w4nrnxui3"]
+[gd_scene load_steps=10 format=3 uid="uid://byc7w4nrnxui3"]
 
 [ext_resource type="Script" uid="uid://dpsfbvpi688aj" path="res://characters/imp/imp.gd" id="1_53fos"]
 [ext_resource type="PackedScene" uid="uid://bad4hxjchillh" path="res://assets/character_models/imp/imp.tscn" id="2_53fos"]
@@ -188,6 +188,10 @@ _data = {
 &"Armature|walking_man|baselayer": SubResource("Animation_kevlo")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8gbr7"]
+height = 0.3
+radius = 0.4
+
 [node name="Imp" type="CharacterBody3D"]
 collision_layer = 8
 collision_mask = 5
@@ -217,5 +221,14 @@ libraries = {
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+
+[node name="Killzone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+shape = SubResource("CylinderShape3D_8gbr7")
 
 [editable path="Model"]

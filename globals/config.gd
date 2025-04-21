@@ -18,3 +18,4 @@ const LEVEL_NUM = 7
 # 3: player hit area
 # 4: enemy
 # 5: bullet
+# 6: enemy killzone
