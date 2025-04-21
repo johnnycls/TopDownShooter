@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bad4hxjchillh"]
+[gd_scene load_steps=7 format=3 uid="uid://bad4hxjchillh"]
 
 [ext_resource type="PackedScene" uid="uid://em1ohh0kv6fj" path="res://assets/character_models/imp/Animation_Walking_withSkin.glb" id="1_flrqr"]
 [ext_resource type="AnimationLibrary" uid="uid://fn5igjon5jcc" path="res://assets/character_models/animations/Imp Attack.fbx" id="2_jq40d"]
 [ext_resource type="AnimationLibrary" uid="uid://d1rus07f3w7sg" path="res://assets/character_models/animations/Orc Idle.fbx" id="2_odcxb"]
+[ext_resource type="AnimationLibrary" uid="uid://dpfeqfu0wken4" path="res://assets/character_models/animations/die.fbx" id="4_s44tk"]
 
 [sub_resource type="Animation" id="Animation_kevlo"]
 resource_name = "Armature|walking_man|baselayer"
@@ -214,5 +215,6 @@ bones/22/rotation = Quaternion(-0.0214355, 0.00254345, 0.008093, 0.999734)
 libraries = {
 &"": SubResource("AnimationLibrary_cyrty"),
 &"Imp Attack": ExtResource("2_jq40d"),
-&"Orc Idle": ExtResource("2_odcxb")
+&"Orc Idle": ExtResource("2_odcxb"),
+&"die": ExtResource("4_s44tk")
 }

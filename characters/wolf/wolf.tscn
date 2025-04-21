@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://65du4tifwjwx"]
+[gd_scene load_steps=6 format=3 uid="uid://65du4tifwjwx"]
 
 [ext_resource type="Script" uid="uid://cv62a61i8ugb3" path="res://characters/wolf/wolf.gd" id="1_4r4v0"]
+[ext_resource type="PackedScene" uid="uid://dfiat7xdfawdr" path="res://characters/enemy.tscn" id="1_jsuiw"]
 [ext_resource type="PackedScene" uid="uid://biknwf1iyxau3" path="res://assets/character_models/wolf/wolf.tscn" id="2_4r4v0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r4v0"]
@@ -9,28 +10,22 @@ size = Vector3(1, 0.8, 1.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fr36u"]
 size = Vector3(0.4, 0.2, 1.2)
 
-[node name="Wolf" type="CharacterBody3D"]
-collision_layer = 8
-collision_mask = 5
+[node name="Wolf" instance=ExtResource("1_jsuiw")]
 script = ExtResource("1_4r4v0")
 speed = 6.5
 attack_animation = "Armature|Unreal Take|baselayer"
 idle_animation = "Armature|Unreal Take|baselayer"
 run_animation = "Armature|Unreal Take|baselayer"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.3)
 shape = SubResource("BoxShape3D_4r4v0")
 
-[node name="Killzone" type="Area3D" parent="."]
+[node name="CollisionShape3D" parent="Killzone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.3)
-collision_layer = 32
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 shape = SubResource("BoxShape3D_fr36u")
 
-[node name="Model" parent="." instance=ExtResource("2_4r4v0")]
+[node name="Model" parent="." index="4" instance=ExtResource("2_4r4v0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.05, 0.75)
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
@@ -60,10 +55,5 @@ bones/23/rotation = Quaternion(0.855786, -0.00966244, 0.0104789, 0.517134)
 bones/24/rotation = Quaternion(-0.614533, -0.118669, -0.0185717, 0.779693)
 bones/25/rotation = Quaternion(-0.217968, 0.14474, 0.157914, 0.952157)
 bones/26/rotation = Quaternion(0.0606886, -0.0399268, -0.0739122, 0.994615)
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 5.0
 
 [editable path="Model"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://tbf5xv4f56b2"]
+[gd_scene load_steps=6 format=3 uid="uid://tbf5xv4f56b2"]
 
+[ext_resource type="PackedScene" uid="uid://dfiat7xdfawdr" path="res://characters/enemy.tscn" id="1_jsuiw"]
 [ext_resource type="Script" uid="uid://dbv6sq6k3vyxj" path="res://characters/goblin/goblin.gd" id="1_txks3"]
 [ext_resource type="PackedScene" uid="uid://cs1cfs0o345fd" path="res://assets/character_models/goblin/goblin.tscn" id="2_jsuiw"]
 
@@ -11,9 +12,7 @@ radius = 0.6
 height = 0.3
 radius = 0.3
 
-[node name="Goblin" type="CharacterBody3D" groups=["enemy"]]
-collision_layer = 8
-collision_mask = 5
+[node name="Goblin" instance=ExtResource("1_jsuiw")]
 script = ExtResource("1_txks3")
 speed = 5.0
 attack_animation = "Zombie Attack/mixamo_com"
@@ -21,26 +20,17 @@ idle_animation = "Orc Idle/mixamo_com"
 run_animation = "Armature|running|baselayer"
 die_animation = "die/mixamo_com"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
-[node name="Killzone" type="Area3D" parent="."]
+[node name="CollisionShape3D" parent="Killzone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
-collision_layer = 32
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 shape = SubResource("CylinderShape3D_jsuiw")
 
-[node name="Model" parent="." instance=ExtResource("2_jsuiw")]
+[node name="Model" parent="." index="4" instance=ExtResource("2_jsuiw")]
 
 [node name="Armature" parent="Model" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 5.0
 
 [editable path="Model"]

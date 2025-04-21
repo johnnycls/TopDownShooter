@@ -45,5 +45,5 @@ func die() -> void:
 func _on_killzone_body_entered(body: Node3D) -> void:
 	if not is_dead and body.is_in_group("player"):
 		Global.play_sound(bounce_sound, audio_stream_player)
-		body.velocity.y = bounce_force
+		body.velocity.y = max(bounce_force, body.velocity.y)
 		take_damage(1)
