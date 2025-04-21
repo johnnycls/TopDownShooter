@@ -11,3 +11,10 @@ const DEFAULT_LANG: int = 1
 var INIT_PROGRESS: Dictionary = {}
 
 const LEVEL_NUM = 7
+
+# collision layers
+# 1: floor
+# 2: player collision
+# 3: player hit area
+# 4: enemy
+# 5: bullet

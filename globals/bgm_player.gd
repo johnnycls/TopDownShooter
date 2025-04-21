@@ -5,6 +5,8 @@ var bgm_list = [
 	preload("res://assets/bgm/Riding Free.wav"),
 	preload("res://assets/bgm/syourinouta.wav"),
 	preload("res://assets/bgm/Cowgirl's Resolve Battle.wav"),
+	preload("res://assets/bgm/The Lone Rider.wav"),
+	preload("res://assets/bgm/Lasso the Stars.wav"),
 ]
 
 var current_bgm: int = -1

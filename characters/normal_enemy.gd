@@ -3,9 +3,9 @@ class_name NormalEnemy extends Enemy
 @export var speed: float = 4.5
 @export var attack_range: float = 0.6
 
-@export var attack_animation: String = "Zombie Attack/mixamo_com"
-@export var idle_animation: String = "Orc Idle/mixamo_com"
-@export var run_animation: String = "Armature|running|baselayer"
+@export var attack_animation: String = ""
+@export var idle_animation: String = ""
+@export var run_animation: String = ""
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 

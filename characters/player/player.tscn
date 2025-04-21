@@ -37,6 +37,9 @@ shape = SubResource("CylinderShape3D_3eadt")
 
 [node name="Model" parent="." instance=ExtResource("2_xxgcw")]
 
+[node name="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="0"]
+transform = Transform3D(0.491683, -0.143222, 0.858915, -0.0668524, -0.989679, -0.126757, 0.868204, 0.00490371, -0.496183, -0.229192, 0.817844, 0.0623483)
+
 [node name="MuzzleFlash" type="Node3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/revolver" index="1"]
 transform = Transform3D(-0.87958, -0.129859, 0.457684, -0.0789096, 0.988523, 0.128827, -0.469159, 0.0771986, -0.879733, 0.00459707, 0.270909, -0.220138)
 visible = false

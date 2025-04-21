@@ -35,7 +35,8 @@ navigation_mesh = SubResource("NavigationMesh_63c5o")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map" index="0"]
 transform = Transform3D(0.707107, -0.612372, 0.353553, 0, 0.5, 0.866025, -0.707107, -0.612372, 0.353553, 0, 10, 0)
-light_color = Color(1, 0.7, 0.7, 1)
+light_color = Color(1, 0.85, 0.7, 1)
+light_energy = 2.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Map" index="1"]

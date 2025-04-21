@@ -14,7 +14,6 @@ speed = 6.5
 attack_animation = "Armature|Unreal Take|baselayer"
 idle_animation = "Armature|Unreal Take|baselayer"
 run_animation = "Armature|Unreal Take|baselayer"
-die_animation = ""
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.3)

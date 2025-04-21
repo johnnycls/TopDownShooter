@@ -3,11 +3,14 @@ extends CharacterBody3D
 signal dead
 
 @export var speed: float = 7.5
-@export var jump_velocity: float = 11.0
 @export var fire_rate: float = 0.4
 @export var max_health: int = 1
 @export var shoot_distance: float = 50.0
 @export var shoot_damage: float = 1.0
+
+@export var min_jump_velocity: float = 4.0
+@export var max_jump_velocity: float = 10.0
+@export var jump_duration: float = 0.35
 
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
@@ -27,6 +30,9 @@ var can_shoot: bool = true
 var is_shooting: bool = false
 var is_jumping: bool = false
 var health: int = max_health
+
+var jump_time: float = 0.0
+var is_jump_pressed: bool = false
 
 func init() -> void:
 	global_position = Vector3.ZERO
@@ -48,13 +54,24 @@ func _physics_process(delta: float) -> void:
 func handle_jumping(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		
+		if is_jump_pressed and jump_time < jump_duration and velocity.y > 0:
+			jump_time += delta
+			var t = jump_time / jump_duration
+			velocity.y = lerp(max_jump_velocity, min_jump_velocity, t)
 	else:
 		is_jumping = false
+		jump_time = 0.0
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y = max_jump_velocity
 		is_jumping = true
+		is_jump_pressed = true
 		animation_player.play("Jump/mixamo_com")
+	
+	if Input.is_action_just_released("jump"):
+		is_jump_pressed = false
+		velocity.y = min(velocity.y, min_jump_velocity)
 
 func handle_movement() -> void:
 	var input_dir = Vector3.ZERO

@@ -12,6 +12,10 @@ collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_txks3")
 speed = 5.0
+attack_animation = "Zombie Attack/mixamo_com"
+idle_animation = "Orc Idle/mixamo_com"
+run_animation = "Armature|running|baselayer"
+die_animation = "die/mixamo_com"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

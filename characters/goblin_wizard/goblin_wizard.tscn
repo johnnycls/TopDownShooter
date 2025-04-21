@@ -14,7 +14,9 @@ script = ExtResource("1_hv2ac")
 speed = 5.0
 attack_range = 11.0
 attack_animation = "Wizard Small Attack/mixamo_com"
+idle_animation = "Orc Idle/mixamo_com"
 run_animation = "Armature|walking_man|baselayer"
+die_animation = "die/mixamo_com"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
