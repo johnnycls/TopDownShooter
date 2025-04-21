@@ -1,43 +1,36 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bgq7gf52v0365"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bgq7gf52v0365"]
 
 [ext_resource type="FontFile" uid="uid://vov6yw7ls211" path="res://assets/fonts/NotoSerifTC-SemiBold.ttf" id="1_df3iy"]
 [ext_resource type="Texture2D" uid="uid://2hy4hmqls6tn" path="res://assets/ui_sprites/general/btn_hover.png" id="2_4shvh"]
 [ext_resource type="Texture2D" uid="uid://ctfm5ci1y2di2" path="res://assets/ui_sprites/general/btn.png" id="3_fq06v"]
+[ext_resource type="Texture2D" uid="uid://chhu5wn3172uy" path="res://assets/ui_sprites/general/sq_btn_normal.png" id="4_yge07"]
+[ext_resource type="Texture2D" uid="uid://c781lhwe386ay" path="res://assets/ui_sprites/general/sq_btn_hover.png" id="5_xehir"]
+[ext_resource type="Texture2D" uid="uid://7mxbxjlb2k8m" path="res://assets/ui_sprites/general/sq_btn_pressed.png" id="6_0w0ys"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3i7n"]
 texture = ExtResource("2_4shvh")
-expand_margin_left = 25.0
-expand_margin_top = 5.0
-expand_margin_right = 25.0
-expand_margin_bottom = 5.0
+texture_margin_left = 50.0
+texture_margin_right = 50.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yge07"]
 texture = ExtResource("2_4shvh")
-expand_margin_left = 25.0
-expand_margin_top = 5.0
-expand_margin_right = 25.0
-expand_margin_bottom = 5.0
+texture_margin_left = 50.0
+texture_margin_right = 50.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xehir"]
 texture = ExtResource("2_4shvh")
-expand_margin_left = 25.0
-expand_margin_top = 5.0
-expand_margin_right = 25.0
-expand_margin_bottom = 5.0
+texture_margin_left = 50.0
+texture_margin_right = 50.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w0ys"]
 texture = ExtResource("3_fq06v")
-expand_margin_left = 25.0
-expand_margin_top = 5.0
-expand_margin_right = 25.0
-expand_margin_bottom = 5.0
+texture_margin_left = 50.0
+texture_margin_right = 50.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qn7hb"]
 texture = ExtResource("2_4shvh")
-expand_margin_left = 25.0
-expand_margin_top = 5.0
-expand_margin_right = 25.0
-expand_margin_bottom = 5.0
+texture_margin_left = 50.0
+texture_margin_right = 50.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dksrs"]
 
@@ -54,13 +47,31 @@ expand_margin_bottom = 5.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lajf8"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4shvh"]
+texture = ExtResource("4_yge07")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fq06v"]
+texture = ExtResource("5_xehir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w82y"]
+texture = ExtResource("5_xehir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nl8gm"]
+texture = ExtResource("6_0w0ys")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gjwc"]
+texture = ExtResource("4_yge07")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fnhc"]
+texture = ExtResource("6_0w0ys")
+
 [resource]
 Btn1/base_type = &"Button"
-Btn1/colors/font_color = Color(0, 0, 0, 1)
-Btn1/colors/font_focus_color = Color(0, 0, 0, 1)
-Btn1/colors/font_hover_color = Color(0, 0, 0, 1)
-Btn1/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-Btn1/colors/font_pressed_color = Color(0, 0, 0, 1)
+Btn1/colors/font_color = Color(0.9, 0.81, 0.72, 1)
+Btn1/colors/font_focus_color = Color(0.901961, 0.811765, 0.721569, 1)
+Btn1/colors/font_hover_color = Color(0.901961, 0.811765, 0.721569, 1)
+Btn1/colors/font_hover_pressed_color = Color(0.901961, 0.811765, 0.721569, 1)
+Btn1/colors/font_pressed_color = Color(0.901961, 0.811765, 0.721569, 1)
 Btn1/fonts/font = ExtResource("1_df3iy")
 Btn1/styles/focus = SubResource("StyleBoxTexture_c3i7n")
 Btn1/styles/hover = SubResource("StyleBoxTexture_yge07")
@@ -86,3 +97,10 @@ PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
 PopupMenu/font_sizes/font_size = 64
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_b1s5r")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_lajf8")
+SqBtn/base_type = &"Button"
+SqBtn/styles/disabled = SubResource("StyleBoxTexture_4shvh")
+SqBtn/styles/focus = SubResource("StyleBoxTexture_fq06v")
+SqBtn/styles/hover = SubResource("StyleBoxTexture_2w82y")
+SqBtn/styles/hover_pressed = SubResource("StyleBoxTexture_nl8gm")
+SqBtn/styles/normal = SubResource("StyleBoxTexture_8gjwc")
+SqBtn/styles/pressed = SubResource("StyleBoxTexture_6fnhc")

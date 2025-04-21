@@ -3,5 +3,5 @@
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(0, 125)
 size_flags_horizontal = 3
-theme_type_variation = &"Btn1"
+theme_type_variation = &"SqBtn"
 text = "0"

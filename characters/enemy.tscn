@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dfiat7xdfawdr"]
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Killzone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.3)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
