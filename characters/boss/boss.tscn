@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://qfm1a8ji00m2"]
+[gd_scene load_steps=6 format=3 uid="uid://qfm1a8ji00m2"]
 
+[ext_resource type="PackedScene" uid="uid://dfiat7xdfawdr" path="res://characters/enemy.tscn" id="1_jsuiw"]
 [ext_resource type="Script" uid="uid://p6lyxp1rkg5s" path="res://characters/boss/boss.gd" id="1_v5jhe"]
 [ext_resource type="PackedScene" uid="uid://l654ii2yi8j7" path="res://assets/character_models/boss/boss.tscn" id="2_v5jhe"]
 
@@ -11,21 +12,22 @@ radius = 0.6
 height = 0.3
 radius = 0.3
 
-[node name="Boss" type="CharacterBody3D"]
+[node name="Boss" instance=ExtResource("1_jsuiw")]
 script = ExtResource("1_v5jhe")
+attack_range = 14.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_vrth7")
 
-[node name="Killzone" type="Area3D" parent="."]
+[node name="CollisionShape3D" parent="Killzone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-collision_layer = 32
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 shape = SubResource("CylinderShape3D_v5jhe")
 
-[node name="Boss" parent="." instance=ExtResource("2_v5jhe")]
+[node name="Model" parent="." index="4" instance=ExtResource("2_v5jhe")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" index="1"]
+
+[node name="TeleportTimer" type="Timer" parent="." index="5"]
+
+[editable path="Model"]

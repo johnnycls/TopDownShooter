@@ -68,6 +68,9 @@ func _on_enemy_died() -> void:
 		"remaining_enemies": enemy_alive
 	})
 	if enemy_alive <= 0:
+		win()
+
+func win() -> void:
 		Main.win()
 		player.win()
 		BgmPlayer.play_bgm(2)

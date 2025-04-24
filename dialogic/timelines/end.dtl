@@ -1,5 +1,9 @@
-join player left 
+join player left
 player: END_CASSIDY_1
 join boss right
 boss: END_VOICE_1
 player: END_CASSIDY_2
+leave --All--
+OUTRO_NARRATION_1
+PLAYER_MSG_1
+do Main.back_to_home_screen()

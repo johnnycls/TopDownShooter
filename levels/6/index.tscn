@@ -50,3 +50,6 @@ shape = SubResource("CylinderShape3D_xetoy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/StaticBody3D" index="1"]
 mesh = SubResource("CylinderMesh_xetoy")
+
+[node name="Player" parent="." index="1"]
+can_shoot = false

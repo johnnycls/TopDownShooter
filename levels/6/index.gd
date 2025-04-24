@@ -8,3 +8,10 @@ func _ready() -> void:
 func start() -> void:
     super.start()
     BgmPlayer.play_bgm(5)
+
+func win() -> void:
+    Main.win()
+    player.win()
+    BgmPlayer.play_bgm(2)
+    await BgmPlayer.finished
+    Dialogic.start("end")

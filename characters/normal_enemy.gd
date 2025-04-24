@@ -31,9 +31,11 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * speed
 	
 	if direction.length() > 0:
-		animation_player.play(run_animation)
+		if run_animation != "":
+			animation_player.play(run_animation)
 	else:
-		animation_player.play(idle_animation)
+		if idle_animation != "":
+			animation_player.play(idle_animation)
 	move_and_slide()
 	
 	var target_pos = Vector3(player.global_position.x, global_position.y, player.global_position.z)
@@ -41,6 +43,7 @@ func _physics_process(_delta: float) -> void:
 
 func attack() -> void:
 	is_attacking = true
-	animation_player.play(attack_animation)
-	await animation_player.animation_finished
+	if attack_animation != "":
+		animation_player.play(attack_animation)
+		await animation_player.animation_finished
 	is_attacking = false

@@ -11,6 +11,7 @@ signal dead
 @export var min_jump_velocity: float = 4.0
 @export var max_jump_velocity: float = 10.0
 @export var jump_duration: float = 0.4
+@export var can_shoot: bool = true
 
 var bullet_trail: PackedScene = preload("res://objects/bullet_trail.tscn")
 var walk_sound: AudioStream = preload("res://assets/sound_effects/walk.mp3")
@@ -28,7 +29,6 @@ var land_sound: AudioStream = preload("res://assets/sound_effects/land.wav")
 
 var gravity: float = 25.0
 var can_move: bool = false
-var can_shoot: bool = true
 var is_shooting: bool = false
 var is_jumping: bool = false
 var health: int = max_health
